@@ -1,0 +1,17 @@
+# Power BI - never track binary files or user cache
+*.pbix
+**/.pbi/localSettings.json
+
+# dbt - generated output, not source
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+
+# Credentials - never commit these
+profiles.yml
+*.env
+.env.*
+
+# OS junk
+.DS_Store
+Thumbs.db
