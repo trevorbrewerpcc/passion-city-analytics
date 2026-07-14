@@ -1,0 +1,100 @@
+table DH_SundaySummary
+	lineageTag: 39c49fb4-79ea-4e2c-93da-258c530c27dc
+
+	measure DHP5W =
+			
+			var checkins = CALCULATE(sum(DH_SundaySummary[Check Ins]),filter(DH_SundaySummary,DH_SundaySummary[AOOccurrenceDate]>=now()-(35+WEEKDAY(now()))))
+			var campuses = CALCULATE(DISTINCTCOUNT(DH_SundaySummary[ACampusId]),filter(DH_SundaySummary,DH_SundaySummary[AOOccurrenceDate]>=now()-(35+WEEKDAY(now()))))
+			var numweeks = CALCULATE(DISTINCTCOUNT(DH_SundaySummary[AOOccurrenceDate]),filter(DH_SundaySummary,DH_SundaySummary[AOOccurrenceDate]>=now()-(35+WEEKDAY(now()))))
+			var numsundays = CALCULATE(DISTINCTCOUNT(DH_SundaySummary[AOOccurrenceDate]),filter(DH_SundaySummary,DH_SundaySummary[AOOccurrenceDate]>=now()-(35+WEEKDAY(now())) && WEEKDAY(DH_SundaySummary[AOOccurrenceDate], 1) = 1 ))
+			return COALESCE(roundup(checkins/(numsundays),0),"-")
+		formatString: #,0
+		lineageTag: c128c343-a783-443c-9e44-2109b5d7b855
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure NonDHP5W = if([DHP5W]="-","-",if([ActiveDH]-DH_SundaySummary[DHP5W]<0,0,ROUNDDOWN([ActiveDH]-[DHP5W],0)))
+		formatString: 0
+		lineageTag: 433bc7e4-d8d5-44b7-a0fd-49aa51e9f77b
+
+	measure NewDHP5W = COALESCE(CALCULATE(sum(DH_SundaySummary[First Time]),filter(DH_SundaySummary,DH_SundaySummary[AOOccurrenceDate]>=now()-(35+WEEKDAY(now())))),"-")
+		formatString: #,0
+		lineageTag: c2bca7c8-33d6-4ce8-b005-3ce60c1025c5
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure NewDHYTD = COALESCE(CALCULATE(sum(DH_SundaySummary[First Time]),filter(DH_SundaySummary,year(DH_SundaySummary[AOOccurrenceDate])=year(now()))),"-")
+		formatString: #,0
+		lineageTag: ed5d9051-7d07-4c19-bcc4-b5d67558ecdf
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column ACampusId
+		formatString: 0
+		lineageTag: 0486e59a-70d2-4256-800d-db27bfcb2c76
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: fact_checkin[ACampusId]
+
+		annotation SummarizationSetBy = Automatic
+
+	column AOOccurrenceDate
+		formatString: General Date
+		lineageTag: 079cb5fd-79c4-4360-9968-d75019f1a474
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: fact_checkin[AOOccurrenceDate]
+
+		variation Variation
+			isDefault
+			relationship: 5a4c851a-d486-4916-834b-7816cc36255f
+			defaultHierarchy: LocalDateTable_1a1dd851-272d-457f-bf61-249de5739120.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Check Ins'
+		formatString: 0
+		lineageTag: d4606e67-e639-4e77-8fd8-9a8686e9a8d2
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Check Ins]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'First Time'
+		formatString: 0
+		lineageTag: 67beca12-37ce-4a3b-b4a0-710276ebc5f5
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [First Time]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DH_SundaySummary = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				    SUMMARIZE(
+				        FILTER(fact_checkin, and(OR(fact_checkin[GTId] = 102, fact_checkin[GTId] = 110),fact_checkin[Sunday] = 1)),
+				        fact_checkin[ACampusId],
+				        fact_checkin[AOOccurrenceDate]
+				    ),
+				    "Check Ins", CALCULATE(
+				        DISTINCTCOUNT(fact_checkin[PersonId])+0,
+				        FILTER(
+				            ALLEXCEPT(fact_checkin, fact_checkin[ACampusId], fact_checkin[AOOccurrenceDate]),
+				            fact_checkin[ADidAttend] = TRUE() && and(OR(fact_checkin[GTId] = 102, fact_checkin[GTId] = 110),fact_checkin[Sunday] = 1)
+				        )
+				    ),
+				    "First Time", CALCULATE(
+				        DISTINCTCOUNT(fact_checkin[PersonId])+0,
+				        FILTER(
+				            ALLEXCEPT(fact_checkin, fact_checkin[ACampusId], fact_checkin[AOOccurrenceDate]),
+				            fact_checkin[AIsFirstTime] = TRUE() && and(OR(fact_checkin[GTId] = 102, fact_checkin[GTId] = 110),fact_checkin[Sunday] = 1)
+				        )
+				    )
+				)
+
+	annotation PBI_Id = 1dc11e09a96943688f680bf45376727f
+

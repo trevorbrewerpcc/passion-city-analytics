@@ -1,0 +1,289 @@
+table fact_checkin
+	lineageTag: c4c062ab-fe8f-47f5-a9a4-4bbc28bee652
+
+	column PersonId
+		dataType: int64
+		formatString: 0
+		lineageTag: d9f6d2ab-8dee-4186-992c-19950bfae2c8
+		summarizeBy: count
+		sourceColumn: PersonId
+
+		annotation SummarizationSetBy = Automatic
+
+	column GId
+		dataType: int64
+		formatString: 0
+		lineageTag: c4011894-b5e9-4bd3-84e4-80430a1f4130
+		summarizeBy: none
+		sourceColumn: GId
+
+		annotation SummarizationSetBy = Automatic
+
+	column GTId
+		dataType: int64
+		formatString: 0
+		lineageTag: cda19a73-d81a-406c-9252-ffca0b531433
+		summarizeBy: count
+		sourceColumn: GTId
+
+		annotation SummarizationSetBy = Automatic
+
+	column GTName
+		dataType: string
+		lineageTag: a996a51f-d128-469f-83a6-718e07b7f8b8
+		summarizeBy: none
+		sourceColumn: GTName
+
+		annotation SummarizationSetBy = Automatic
+
+	column GParentGroupId
+		dataType: int64
+		formatString: 0
+		lineageTag: aa8201e0-77f1-42fd-8b77-1322ec32bbc0
+		summarizeBy: count
+		sourceColumn: GParentGroupId
+
+		annotation SummarizationSetBy = Automatic
+
+	column GCampusId
+		dataType: int64
+		formatString: 0
+		lineageTag: 2739a352-e50d-4e5e-af10-13f112e59f3f
+		summarizeBy: count
+		sourceColumn: GCampusId
+
+		annotation SummarizationSetBy = Automatic
+
+	column AOId
+		dataType: int64
+		formatString: 0
+		lineageTag: a993fbfd-7895-457d-96e8-44f133ee7fea
+		summarizeBy: count
+		sourceColumn: AOId
+
+		annotation SummarizationSetBy = Automatic
+
+	column AOLocationId
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c0b7703-20db-400e-a484-bf2257f14c4c
+		summarizeBy: count
+		sourceColumn: AOLocationId
+
+		annotation SummarizationSetBy = Automatic
+
+	column AOCreatedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 924720a5-ef91-4081-9845-a52cc2b83d45
+		summarizeBy: none
+		sourceColumn: AOCreatedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 45ca9d85-e000-4f07-9c3d-a4a60361eaff
+			defaultHierarchy: LocalDateTable_6c259c09-0b3a-4e3a-9098-c2ccbe63f786.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column AOOccurrenceDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bb9ba59b-29b7-4b31-ba5a-fff71c6ec58d
+		summarizeBy: none
+		sourceColumn: AOOccurrenceDate
+
+		variation Variation
+			isDefault
+			relationship: 784c773d-ade7-4202-8568-4bff4565c26c
+			defaultHierarchy: LocalDateTable_fced5ba1-1319-4d40-8b62-7486502b8195.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column AOModifiedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 82f9edb0-f248-4677-a80f-abb7d4e5c719
+		summarizeBy: none
+		sourceColumn: AOModifiedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 4c441da5-17b0-4a67-b70b-4f68fbe3ee03
+			defaultHierarchy: LocalDateTable_33a14ed8-e871-4098-912d-3cf155852d56.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column AOSundayDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3c93946b-afc5-4ebb-9e2c-48d46654fac5
+		summarizeBy: none
+		sourceColumn: AOSundayDate
+
+		variation Variation
+			isDefault
+			relationship: 6032275b-418c-4625-a0bf-501b72730d7c
+			defaultHierarchy: LocalDateTable_f20f2381-78b7-491c-808c-e8702da5d2ce.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column AId
+		dataType: int64
+		formatString: 0
+		lineageTag: a2a1b523-2cb6-4c53-ad36-b8591aa9c571
+		summarizeBy: count
+		sourceColumn: AId
+
+		annotation SummarizationSetBy = Automatic
+
+	column AStartDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 77358601-59a8-4ad3-a999-1be24f0a2402
+		summarizeBy: none
+		sourceColumn: AStartDateTime
+
+		variation Variation
+			isDefault
+			relationship: c6089658-1c39-457b-bef8-466e687df6d6
+			defaultHierarchy: LocalDateTable_43e8e3c6-998b-4344-b9eb-8a6956967f3f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column AEndDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c23c439a-ddc5-4d1a-ad30-fabcb8fc0adc
+		summarizeBy: none
+		sourceColumn: AEndDateTime
+
+		variation Variation
+			isDefault
+			relationship: 8d08e9c5-5a52-4599-9603-c1f33fe98566
+			defaultHierarchy: LocalDateTable_e177401c-0086-494c-85c8-a0ad93ee8e58.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ADidAttend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: de84bb3e-1180-4e6e-842b-6657088e3fb7
+		summarizeBy: none
+		sourceColumn: ADidAttend
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACampusId
+		dataType: int64
+		formatString: 0
+		lineageTag: d557b171-aaa3-40b6-857b-06103ddf2b35
+		summarizeBy: count
+		sourceColumn: ACampusId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARSVP
+		dataType: int64
+		formatString: 0
+		lineageTag: 6583c26c-8426-4bf3-9073-caa646173a3a
+		summarizeBy: sum
+		sourceColumn: ARSVP
+
+		annotation SummarizationSetBy = Automatic
+
+	column AScheduledToAttend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ae187914-5078-469b-925e-c2f2e7c712b2
+		summarizeBy: none
+		sourceColumn: AScheduledToAttend
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARequestedToAttend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c40ef7fc-b9f7-4704-81fb-21b7c3252a16
+		summarizeBy: none
+		sourceColumn: ARequestedToAttend
+
+		annotation SummarizationSetBy = Automatic
+
+	column AScheduleConfirmationSent
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: fd640934-1a4d-46b1-bc8f-0dc9a53ad138
+		summarizeBy: none
+		sourceColumn: AScheduleConfirmationSent
+
+		annotation SummarizationSetBy = Automatic
+
+	column AScheduleReminderSent
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a28877c4-d82c-46d9-9bb2-fc639aadb279
+		summarizeBy: none
+		sourceColumn: AScheduleReminderSent
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARSVPDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: adae3abe-0f02-4155-bd23-b118d30be4d2
+		summarizeBy: none
+		sourceColumn: ARSVPDateTime
+
+		variation Variation
+			isDefault
+			relationship: 1baad795-8bba-4c02-b796-a02d121adf04
+			defaultHierarchy: LocalDateTable_c9172b58-653f-4db7-9ede-3c4240387b60.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column AIsFirstTime
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 774650ca-ffe5-4005-81fa-0bb6fd485ce3
+		summarizeBy: none
+		sourceColumn: AIsFirstTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACheckInStatus
+		dataType: int64
+		formatString: 0
+		lineageTag: 8799c96a-fc0a-43b1-bac1-6e3a42d5a933
+		summarizeBy: sum
+		sourceColumn: ACheckInStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sunday = if(WEEKDAY(fact_checkin[AOOccurrenceDate])=1,1,0)
+		formatString: 0
+		lineageTag: 2bbde01a-725d-4156-ad4e-24d52ff7ee30
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_checkin = m
+		mode: import
+		source =
+				let
+				    Source = PowerBI.Dataflows(null),
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Source{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"]}[Data],
+				    fact_checkin1 = #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"{[entity="fact_checkin"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(fact_checkin1, each ([ACampusId] <> 5) and ([GTName] <> "Adults" and [GTName] <> "Archers" and [GTName] <> "Attendee" and [GTName] <> "Community Groups" and [GTName] <> "Connect Groups" and [GTName] <> "Contractor" and [GTName] <> "CORE" and [GTName] <> "Events" and [GTName] <> "Fight Night Local" and [GTName] <> "For the City | Projects" and [GTName] <> "RSVP Groups" and [GTName] <> "The Grove Collective" and [GTName] <> "UNITE"))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

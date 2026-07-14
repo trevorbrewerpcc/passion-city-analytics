@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "5da679d2dedb40b29066",
+  "position": {
+    "x": 963.71777576870386,
+    "y": 1341.1572266684639,
+    "z": 44000,
+    "height": 115,
+    "width": 214,
+    "tabOrder": 45000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_group"
+                    }
+                  },
+                  "Property": "meetingsP5W"
+                }
+              },
+              "queryRef": "dim_group.meetingsP5W",
+              "nativeQueryRef": "Meetings Held",
+              "displayName": "Meetings Held"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_group"
+                  }
+                },
+                "Property": "meetingsP5W"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

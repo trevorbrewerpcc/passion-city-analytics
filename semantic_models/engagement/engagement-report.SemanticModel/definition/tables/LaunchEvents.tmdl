@@ -1,0 +1,60 @@
+table LaunchEvents
+	lineageTag: 7a8f90e0-6c9b-441f-9c98-88aa221154f3
+
+	column SCampusId
+		formatString: 0
+		lineageTag: 46fd94bf-850a-4900-bce9-91ef5f39fcf6
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: fact_step[SCampusId]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SSName
+		lineageTag: 814238af-c3bb-41ed-99a2-4237d9ce8b90
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: fact_step[SSName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 3m
+		formatString: 0
+		lineageTag: ec543f1a-c82c-4d10-8850-5466228244b1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [3m]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YTD
+		formatString: 0
+		lineageTag: 19def074-4acb-499a-90f4-b20377994c2d
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [YTD]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 365d
+		formatString: 0
+		lineageTag: 07381213-036f-467c-9394-eeedb1b84a51
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [365d]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition LaunchEvents = calculated
+		mode: import
+		source =
+				SUMMARIZE(fact_step,
+				    fact_step[SCampusId],
+				    fact_step[SSName],
+				    "3m",CALCULATE(DISTINCTCOUNT(fact_step[PersonId]),filter(fact_step,fact_step[SStartDateTime]>=now()-90 )),
+				    "YTD",CALCULATE(DISTINCTCOUNT(fact_step[PersonId]),filter(fact_step,year(fact_step[SStartDateTime])=year(now()))),
+				    "365d",CALCULATE(DISTINCTCOUNT(fact_step[PersonId]),filter(fact_step,fact_step[SStartDateTime]>=now()-365))
+				)
+
+	annotation PBI_Id = a8bba75267d14398b2b848727c3feb3f
+

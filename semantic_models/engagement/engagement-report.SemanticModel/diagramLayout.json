@@ -1,0 +1,190 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 50,
+        "y": 14
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1335.9919658201889,
+            "y": 353.3028302972034
+          },
+          "nodeIndex": "dim_attributevalue_JIL",
+          "nodeLineageTag": "89ec4f86-1dc5-480f-a93b-b21a92cf7f32",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 726.220789240251,
+            "y": 249.20459924942645
+          },
+          "nodeIndex": "dim_campus",
+          "nodeLineageTag": "674c8b67-e099-4d4e-b94c-c6d5d7973484",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 645.75131007716027,
+            "y": 644.86864030505967
+          },
+          "nodeIndex": "dim_group",
+          "nodeLineageTag": "51862b62-94c4-40f9-bfb0-46217c4a94d2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 242.89872025707643
+          },
+          "nodeIndex": "dim_groupmember",
+          "nodeLineageTag": "c7a57ccd-f65e-4544-b0a1-45a275aa5248",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 440.22554641465945,
+            "y": 302.90055134966326
+          },
+          "nodeIndex": "dim_person",
+          "nodeLineageTag": "b00c233b-f6e3-47e4-8320-7a52756391c3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1101.9919658201889,
+            "y": 61.214881437349504
+          },
+          "nodeIndex": "fact_attendance",
+          "nodeLineageTag": "c10a71ad-e8c8-4307-85cc-f5ff47c0fabc",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 360.11808082061714,
+            "y": 725.35566059440669
+          },
+          "nodeIndex": "fact_checkin",
+          "nodeLineageTag": "c4c062ab-fe8f-47f5-a9a4-4bbc28bee652",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 289.52785327395645,
+            "y": 0
+          },
+          "nodeIndex": "fact_connectionrequest",
+          "nodeLineageTag": "eba95c86-daac-4795-98d0-f6dccd487dbe",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1741.9919658201889,
+            "y": 349.3028302972034
+          },
+          "nodeIndex": "fact_workflow",
+          "nodeLineageTag": "3cb5002c-3719-41e8-9aa7-93693eab851b",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1299.9919658201889,
+            "y": 772.3028302972034
+          },
+          "nodeIndex": "fact_step",
+          "nodeLineageTag": "e69699ab-f73d-4b34-8028-ee8742c9b2f6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1625.9919658201889,
+            "y": 826.3028302972034
+          },
+          "nodeIndex": "LaunchEvents",
+          "nodeLineageTag": "7a8f90e0-6c9b-441f-9c98-88aa221154f3",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2321.9919658201889,
+            "y": 378.30283029720334
+          },
+          "nodeIndex": "BaptismSummary",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 630.8028302972034
+          },
+          "nodeIndex": "DH_SundaySummary",
+          "nodeLineageTag": "39c49fb4-79ea-4e2c-93da-258c530c27dc",
+          "size": {
+            "height": 308.75,
+            "width": 296.5
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 50,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

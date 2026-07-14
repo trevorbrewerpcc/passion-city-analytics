@@ -1,0 +1,251 @@
+table dim_attributevalue_JIL
+	lineageTag: 89ec4f86-1dc5-480f-a93b-b21a92cf7f32
+
+	/// Count of yes values in dim_attributevalue_JIL in the past 365 days
+	measure G_JIL_P365Yeses = COUNTROWS(FILTER(dim_attributevalue_JIL, dim_attributevalue_JIL[value] = "yes" && dim_attributevalue_JIL[CreatedDateTime] >= NOW() - 365))
+		formatString: #,0
+		displayFolder: Measures
+		lineageTag: a800aaac-a39e-4bea-b978-ba5357d6e838
+
+	/// Count of yes values in dim_attributevalue_JIL year to date
+	measure G_JIL_YTDYeses = COUNTROWS(FILTER(dim_attributevalue_JIL, dim_attributevalue_JIL[value] = "yes" && YEAR(dim_attributevalue_JIL[CreatedDateTime]) = YEAR(NOW())))
+		formatString: #,0
+		displayFolder: Measures
+		lineageTag: 437c8468-3bcc-4261-91bb-668112e0c11b
+
+	/// Count of yes values in dim_attributevalue_JIL in the past 90 days
+	measure G_JIL_P90Yeses = COUNTROWS(FILTER(dim_attributevalue_JIL, dim_attributevalue_JIL[value] = "yes" && dim_attributevalue_JIL[CreatedDateTime] >= NOW() - 90))
+		formatString: #,0
+		displayFolder: Measures
+		lineageTag: 1db79e4e-b835-4aaf-a693-0ee4a86e9d35
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: 46e76a28-0ab8-4c77-be0e-065d908f531b
+		summarizeBy: count
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSystem
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d25ef27f-2693-48f4-a670-2c5d83acadcb
+		summarizeBy: none
+		sourceColumn: IsSystem
+
+		annotation SummarizationSetBy = Automatic
+
+	column AttributeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 5bc8fd03-ec81-4e68-9ac1-68f69942f63f
+		summarizeBy: count
+		sourceColumn: AttributeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EntityId
+		dataType: int64
+		formatString: 0
+		lineageTag: c2d397b6-95f0-465f-b97f-3f9bc1ab27f0
+		summarizeBy: none
+		sourceColumn: EntityId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value
+		dataType: string
+		lineageTag: a81c6d21-731b-4e82-925a-da05966fac58
+		summarizeBy: none
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column Guid
+		dataType: string
+		lineageTag: 0b73829a-6685-4f82-bbc5-1aba6b8d80cf
+		summarizeBy: none
+		sourceColumn: Guid
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 89ef90a1-dec2-4a2f-8383-9cb1c8a13282
+		summarizeBy: none
+		sourceColumn: CreatedDateTime
+
+		variation Variation
+			isDefault
+			relationship: b2754b68-0f49-441e-a8f1-292addc07bb4
+			defaultHierarchy: LocalDateTable_87592105-710d-472e-b8c6-c6b64cc65aec.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 96aac69f-ac1d-42bf-acc3-16cb8376528d
+		summarizeBy: none
+		sourceColumn: ModifiedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 1a897624-ef22-4269-8b6c-a8a6e4ddb511
+			defaultHierarchy: LocalDateTable_9c0c6ec2-3363-4519-b368-bf064f00a625.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedByPersonAliasId
+		dataType: int64
+		formatString: 0
+		lineageTag: 96e210ac-4a15-4453-aadf-c905b5e1302a
+		summarizeBy: count
+		sourceColumn: CreatedByPersonAliasId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedByPersonAliasId
+		dataType: int64
+		formatString: 0
+		lineageTag: c06fd6e3-2549-4107-96da-32756c76f7f8
+		summarizeBy: count
+		sourceColumn: ModifiedByPersonAliasId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignKey
+		dataType: string
+		lineageTag: eddc9d63-efc2-43d7-ba41-01341424072e
+		summarizeBy: none
+		sourceColumn: ForeignKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValueAsDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 25e3edac-aca8-4a18-aad2-5d66e534952a
+		summarizeBy: none
+		sourceColumn: ValueAsDateTime
+
+		variation Variation
+			isDefault
+			relationship: 47700ba3-6069-417a-8320-830462a792a9
+			defaultHierarchy: LocalDateTable_587279c2-8206-41aa-97fe-124b21a4ecf3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignGuid
+		dataType: string
+		lineageTag: efb0b4d8-effd-405f-9ac4-1db722347246
+		summarizeBy: none
+		sourceColumn: ForeignGuid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignId
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d8c982a-673c-4c9e-bf2a-3dd1f41a3097
+		summarizeBy: count
+		sourceColumn: ForeignId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValueAsNumeric
+		dataType: double
+		lineageTag: 914c2f77-cbf5-44ad-b41e-48d7efcd53d4
+		summarizeBy: sum
+		sourceColumn: ValueAsNumeric
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PersistedTextValue
+		dataType: string
+		lineageTag: 64ac5e45-3538-4d18-9e09-0611aba83a4c
+		summarizeBy: none
+		sourceColumn: PersistedTextValue
+
+		annotation SummarizationSetBy = Automatic
+
+	column PersistedHtmlValue
+		dataType: string
+		lineageTag: 1f272836-169f-4175-91d6-f5331bdaa5f5
+		summarizeBy: none
+		sourceColumn: PersistedHtmlValue
+
+		annotation SummarizationSetBy = Automatic
+
+	column PersistedCondensedTextValue
+		dataType: string
+		lineageTag: eadcf495-3cf7-4367-ab4d-c4b54eb9e0ba
+		summarizeBy: none
+		sourceColumn: PersistedCondensedTextValue
+
+		annotation SummarizationSetBy = Automatic
+
+	column PersistedCondensedHtmlValue
+		dataType: string
+		lineageTag: 0b8cdfbb-188c-405e-9106-d8756237b066
+		summarizeBy: none
+		sourceColumn: PersistedCondensedHtmlValue
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsPersistedValueDirty
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c7227b85-f6c8-4de4-92fe-f5255b4992be
+		summarizeBy: none
+		sourceColumn: IsPersistedValueDirty
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValueChecksum
+		dataType: int64
+		formatString: 0
+		lineageTag: dcb23052-1b1d-4c4c-98ec-d01a4dec9505
+		summarizeBy: sum
+		sourceColumn: ValueChecksum
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValueAsBoolean
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a7d3709c-3955-4814-aae2-16008e2852aa
+		summarizeBy: none
+		sourceColumn: ValueAsBoolean
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValueAsPersonId
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e235ae6-9a1e-4ca6-b8cb-b77b35de23f9
+		summarizeBy: count
+		sourceColumn: ValueAsPersonId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_attributevalue_JIL = m
+		mode: import
+		source =
+				let
+				    Source = PowerBI.Dataflows(null),
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Source{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"]}[Data],
+				    dim_attributevalue_JIL1 = #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"{[entity="dim_attributevalue_JIL"]}[Data]
+				in
+				    dim_attributevalue_JIL1
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

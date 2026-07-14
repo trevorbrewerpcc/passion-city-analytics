@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "afec69419a9dc70b8b5c",
+  "position": {
+    "x": 868.9990234373679,
+    "y": 1713.87597656264,
+    "z": 30000,
+    "height": 115,
+    "width": 158,
+    "tabOrder": 27000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_groupmember"
+                    }
+                  },
+                  "Property": "G36_P7DCheckIns"
+                }
+              },
+              "queryRef": "dim_groupmember.G36_P7DCheckIns",
+              "nativeQueryRef": "New (Past Week)",
+              "displayName": "New (Past Week)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_groupmember"
+                  }
+                },
+                "Property": "G36_P7DCheckIns"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "43b2efa304f6d530df19",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_groupmember"
+              }
+            },
+            "Property": "G36_P7DCheckIns"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

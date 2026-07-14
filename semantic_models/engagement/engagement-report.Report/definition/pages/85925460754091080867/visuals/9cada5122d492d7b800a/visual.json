@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "9cada5122d492d7b800a",
+  "position": {
+    "x": 669.9990234373679,
+    "y": 1713.87597656264,
+    "z": 51000,
+    "height": 115,
+    "width": 158,
+    "tabOrder": 50000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_groupmember"
+                    }
+                  },
+                  "Property": "ActiveYA"
+                }
+              },
+              "queryRef": "dim_groupmember.ActiveYA",
+              "nativeQueryRef": "Active Members",
+              "displayName": "Active Members"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_groupmember"
+                  }
+                },
+                "Property": "ActiveYA"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e191e9e7784f5d827414",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_groupmember"
+              }
+            },
+            "Property": "ActiveYA"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

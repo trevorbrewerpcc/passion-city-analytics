@@ -1,0 +1,396 @@
+table dim_groupmember
+	lineageTag: c7a57ccd-f65e-4544-b0a1-45a275aa5248
+
+	measure ActiveDH = CALCULATE(DISTINCTCOUNT(dim_groupmember[PersonId]),filter(dim_groupmember,dim_groupmember[GroupTypeId]=34))
+		formatString: #,0
+		displayFolder: Measures
+		lineageTag: f1e78fe1-501c-4381-ab93-79062ef6b77c
+
+	measure ActiveDHGroups = CALCULATE(DISTINCTCOUNT(dim_groupmember[GroupId]),filter(dim_groupmember,dim_groupmember[GroupTypeId]=34))
+		formatString: 0
+		displayFolder: Measures
+		lineageTag: 7794d080-7355-431b-8e4e-a3d125f98e0b
+
+	measure ActiveYA = COALESCE(CALCULATE(DISTINCTCOUNT(dim_groupmember[PersonId]),filter(dim_groupmember,dim_groupmember[GroupTypeId]=36)),"-")
+		formatString: 0
+		displayFolder: Measures
+		lineageTag: 7e002a56-be63-45ed-b619-d7315bb43fc2
+
+	/// Check-ins for GroupTypeId 36 in the past 7 days
+	measure G36_P7DCheckIns = COALESCE(COUNTROWS(FILTER(dim_groupmember, dim_groupmember[GroupTypeId] = 36 && dim_groupmember[CreatedDateTime] >= NOW() - 7)),"-")
+		formatString: #,0
+		displayFolder: Measures
+		lineageTag: 2d7bc57e-847b-43a0-919a-f13d8c222d73
+
+	/// Check-ins for GroupTypeId 36 year to date
+	measure G36_YTDCheckIns = COALESCE(COUNTROWS(FILTER(dim_groupmember, dim_groupmember[GroupTypeId] = 36 && YEAR(dim_groupmember[CreatedDateTime]) = YEAR(NOW()))),"-")
+		formatString: #,0
+		displayFolder: Measures
+		lineageTag: 3b93b77c-c8dc-44a4-9044-473471ec40bb
+
+	measure P7DCollective = "-"
+		displayFolder: Measures
+		lineageTag: b6bfc357-ef80-43eb-b966-c359b28537f8
+
+	measure YTDCollective = "-"
+		displayFolder: Measures
+		lineageTag: 59ea39f8-1b7a-43d2-b52f-2cf596b9c233
+
+	/// Check-ins for GroupTypeId 130 in the past 365 days
+	measure G130_P365CheckIns = COUNTROWS(FILTER(dim_groupmember, dim_groupmember[GroupTypeId] = 130 && dim_groupmember[CreatedDateTime] >= NOW() - 365))
+		formatString: #,0
+		displayFolder: Measures
+		lineageTag: be9be442-25f0-43ed-9c70-0b261fe4a148
+
+	/// Check-ins for GroupTypeId 130 year to date
+	measure G130_YTDCheckIns = COUNTROWS(FILTER(dim_groupmember, dim_groupmember[GroupTypeId] = 130 && YEAR(dim_groupmember[CreatedDateTime]) = YEAR(NOW())))
+		formatString: #,0
+		displayFolder: Measures
+		lineageTag: 0ef3bfa7-29ed-4adc-81d5-35233835c9fd
+
+	/// Check-ins for GroupTypeId 130 in the past 90 days
+	measure G130_P90CheckIns = COUNTROWS(FILTER(dim_groupmember, dim_groupmember[GroupTypeId] = 130 && dim_groupmember[CreatedDateTime] >= NOW() - 90))
+		formatString: #,0
+		displayFolder: Measures
+		lineageTag: 422a7b3f-ac79-47c3-a892-4d02c1ab2bb9
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5bd6ae90-654a-4718-8e1f-57b277e8fec2
+		summarizeBy: count
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSystem
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5e083856-2c76-4047-83f1-7baecef55fa1
+		summarizeBy: none
+		sourceColumn: IsSystem
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupId
+		dataType: int64
+		formatString: 0
+		lineageTag: e99fcd39-def9-44d8-8ebe-72ef17f93846
+		summarizeBy: none
+		sourceColumn: GroupId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PersonId
+		dataType: int64
+		formatString: 0
+		lineageTag: f8f378c0-a52b-4a2f-a5e0-4039382e8c26
+		summarizeBy: none
+		sourceColumn: PersonId
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupRoleId
+		dataType: int64
+		formatString: 0
+		lineageTag: e5549b09-c27a-47f6-b100-cd30e83fc0ee
+		summarizeBy: count
+		sourceColumn: GroupRoleId
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupMemberStatus
+		dataType: int64
+		formatString: 0
+		lineageTag: b20b0f9a-831d-40e7-b3a0-9a2fa5100747
+		summarizeBy: sum
+		sourceColumn: GroupMemberStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Guid
+		dataType: string
+		lineageTag: aad12bd7-3176-44f4-a149-e3f2b43757ba
+		summarizeBy: none
+		sourceColumn: Guid
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1e302781-9b07-4a44-b12c-220604626747
+		summarizeBy: none
+		sourceColumn: CreatedDateTime
+
+		variation Variation
+			isDefault
+			relationship: d7d65814-3430-48c0-a4ad-3c7f5ca1ad6f
+			defaultHierarchy: LocalDateTable_4b1983be-f8ec-4ee1-9cba-9fc23d5f6ad0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 703e61aa-9f54-4ffb-a35a-95b1c633079f
+		summarizeBy: none
+		sourceColumn: ModifiedDateTime
+
+		variation Variation
+			isDefault
+			relationship: bd67c418-c2d3-4b27-9bd7-b1d473076ff4
+			defaultHierarchy: LocalDateTable_f8b0bcad-f387-489d-9fd6-ba6d7e344f4d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedByPersonAliasId
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f48d401-67fe-4f95-983c-1363bdaa37b4
+		summarizeBy: count
+		sourceColumn: CreatedByPersonAliasId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedByPersonAliasId
+		dataType: int64
+		formatString: 0
+		lineageTag: e3a70ee2-4edb-4b0a-9c0e-eac394df3d6e
+		summarizeBy: count
+		sourceColumn: ModifiedByPersonAliasId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignKey
+		dataType: string
+		lineageTag: ee01989d-fcc5-4f7b-a800-3c5d120281f3
+		summarizeBy: none
+		sourceColumn: ForeignKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GuestCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a123ef0-63df-4301-9bc4-4541e901460a
+		summarizeBy: sum
+		sourceColumn: GuestCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateTimeAdded
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 571526ee-791f-44c3-8a3a-2f51cb992c6a
+		summarizeBy: none
+		sourceColumn: DateTimeAdded
+
+		variation Variation
+			isDefault
+			relationship: 1a4d22c4-6bbe-41d9-9171-b4060cd82b06
+			defaultHierarchy: LocalDateTable_1722ca72-5f4f-4d03-ae79-5d49c1abd3c8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsNotified
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c481dbed-4639-4e47-95f0-d8eb831abf1a
+		summarizeBy: none
+		sourceColumn: IsNotified
+
+		annotation SummarizationSetBy = Automatic
+
+	column Note
+		dataType: string
+		lineageTag: 0da1f5e1-ada2-4b13-93a4-2b1c1a527ffa
+		summarizeBy: none
+		sourceColumn: Note
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignGuid
+		dataType: string
+		lineageTag: 9e25306e-ce08-434a-8c2b-b7fea93c9acc
+		summarizeBy: none
+		sourceColumn: ForeignGuid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignId
+		dataType: int64
+		formatString: 0
+		lineageTag: 46721eed-b4e1-48e4-8c90-c8d12d18caf3
+		summarizeBy: count
+		sourceColumn: ForeignId
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupOrder
+		dataType: int64
+		formatString: 0
+		lineageTag: c1f6e65d-ff7d-4576-b478-25dfdbe91fbd
+		summarizeBy: sum
+		sourceColumn: GroupOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column InactiveDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3e4d722c-db46-4353-a07e-74aa8a9f989d
+		summarizeBy: none
+		sourceColumn: InactiveDateTime
+
+		variation Variation
+			isDefault
+			relationship: 26b4d4ad-eba8-4dd2-b173-ce5e5f5089fb
+			defaultHierarchy: LocalDateTable_2f1d3ad2-bd00-479c-94f5-5628e2f9fd86.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsArchived
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5ad46fd5-eb51-4612-9ee3-a354ebd89403
+		summarizeBy: none
+		sourceColumn: IsArchived
+
+		annotation SummarizationSetBy = Automatic
+
+	column ArchivedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 76a8a60b-3671-4471-adfa-549ae702a145
+		summarizeBy: none
+		sourceColumn: ArchivedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 84f3b3e3-0e1e-42bd-aa86-596c58398e3c
+			defaultHierarchy: LocalDateTable_e79fa45d-2506-45cb-b49a-b19e95e2b19d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ArchivedByPersonAliasId
+		dataType: int64
+		formatString: 0
+		lineageTag: 318f855f-c977-458c-9d1b-f7f8b5d1ccb8
+		summarizeBy: count
+		sourceColumn: ArchivedByPersonAliasId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduleTemplateId
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a206473-9726-4388-9b2f-2115aba23519
+		summarizeBy: count
+		sourceColumn: ScheduleTemplateId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduleStartDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a70dcfa8-f3e1-4847-a44e-767e4eb2cfe4
+		summarizeBy: none
+		sourceColumn: ScheduleStartDate
+
+		variation Variation
+			isDefault
+			relationship: b1234dc3-8dac-4cae-8a76-d93aaae7ddd5
+			defaultHierarchy: LocalDateTable_a741e68d-0a0a-4b35-8796-d140d15ab34b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ScheduleReminderEmailOffsetDays
+		dataType: int64
+		formatString: 0
+		lineageTag: 844ef5a7-2703-4002-8afd-411210c5fb7f
+		summarizeBy: sum
+		sourceColumn: ScheduleReminderEmailOffsetDays
+
+		annotation SummarizationSetBy = Automatic
+
+	column CommunicationPreference
+		dataType: int64
+		formatString: 0
+		lineageTag: 278fe482-f27c-4567-a36e-78b44e118a75
+		summarizeBy: sum
+		sourceColumn: CommunicationPreference
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupTypeId
+		dataType: int64
+		formatString: 0
+		lineageTag: c1a4f51a-cdd1-419f-87d0-9b5910a841c1
+		summarizeBy: count
+		sourceColumn: GroupTypeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsChatMuted
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1ac3d0e5-9beb-46fb-a6f5-43f779239efe
+		summarizeBy: none
+		sourceColumn: IsChatMuted
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsChatBanned
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d836f463-0150-45b6-9ec5-f25de328b6cf
+		summarizeBy: none
+		sourceColumn: IsChatBanned
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupRoleName
+		dataType: string
+		lineageTag: aa1060a2-f8f2-44b0-b518-c8767061b287
+		summarizeBy: none
+		sourceColumn: GroupRoleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupRoleIsLeader
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: babe2d5f-538d-46e7-9b5b-24a352d0b387
+		summarizeBy: none
+		sourceColumn: GroupRoleIsLeader
+
+		annotation SummarizationSetBy = Automatic
+
+	column GCampusId
+		dataType: int64
+		formatString: 0
+		lineageTag: 566d55c7-5216-4407-b384-00949df5ce30
+		summarizeBy: none
+		sourceColumn: GCampusId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_groupmember = m
+		mode: import
+		source =
+				let
+				    Source = PowerBI.Dataflows(null),
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Source{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"]}[Data],
+				    dim_groupmember1 = #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"{[entity="dim_groupmember"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(dim_groupmember1, each ([GCampusId] <> 5))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

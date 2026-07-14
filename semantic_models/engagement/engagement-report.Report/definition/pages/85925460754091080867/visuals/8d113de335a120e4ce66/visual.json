@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "8d113de335a120e4ce66",
+  "position": {
+    "x": 78.4712456597222,
+    "y": 902.84819878472217,
+    "z": 26000,
+    "height": 115,
+    "width": 214,
+    "tabOrder": 23000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_group"
+                    }
+                  },
+                  "Property": "P5WCheckIns"
+                }
+              },
+              "queryRef": "dim_group.P5WCheckIns",
+              "nativeQueryRef": "Past 5 Weeks",
+              "displayName": "Past 5 Weeks"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_group"
+                  }
+                },
+                "Property": "P5WCheckIns"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

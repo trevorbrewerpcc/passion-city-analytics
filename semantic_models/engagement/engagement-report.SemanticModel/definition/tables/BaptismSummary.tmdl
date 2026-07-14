@@ -1,0 +1,70 @@
+table BaptismSummary
+	lineageTag: bc325e4c-bada-4bd1-9bc7-4d2190bf362f
+
+	column CRCampusId
+		formatString: 0
+		lineageTag: 5c04e641-c402-4568-9973-d56cdc96ed0c
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: fact_connectionrequest[CRCampusId]
+
+		annotation SummarizationSetBy = Automatic
+
+	column COName
+		lineageTag: e615bcf1-3b29-4152-9e95-11de75adfcae
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: fact_connectionrequest[COName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Requests 3m'
+		formatString: 0
+		lineageTag: 78477324-74f4-4206-9f02-a6029a4e076d
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Requests 3m]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Requests 1y'
+		formatString: 0
+		lineageTag: 7761ae4e-7547-4194-948b-a4ed75d4a283
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Requests 1y]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Baptisms 3m'
+		formatString: 0
+		lineageTag: ab5546dd-6af1-44d0-ac33-aa983a0fad15
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Baptisms 3m]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Baptisms 1y'
+		formatString: 0
+		lineageTag: fa1a4fde-d7d3-4e49-93f5-727b53559f7b
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Baptisms 1y]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BaptismSummary = calculated
+		mode: import
+		source =
+				SUMMARIZE(fact_connectionrequest,
+				fact_connectionrequest[CRCampusId],
+				fact_connectionrequest[COName],
+				"Requests 3m",COALESCE(CALCULATE(COUNT(fact_connectionrequest[CRCreatedDateTime]),filter(fact_connectionrequest,fact_connectionrequest[CRCreatedDateTime]>=now()-90)),0),
+				"Requests 1y",COALESCE(CALCULATE(COUNT(fact_connectionrequest[CRCreatedDateTime]),filter(fact_connectionrequest,fact_connectionrequest[CRCreatedDateTime]>=now()-365)),0),
+				"Baptisms 3m",COALESCE(CALCULATE(COUNT(fact_connectionrequest[CRModifiedDateTime]),filter(fact_connectionrequest,fact_connectionrequest[CRCreatedDateTime]>=now()-90), fact_connectionrequest[CRStatusName]="Baptism Complete"),0),
+				"Baptisms 1y",COALESCE(CALCULATE(COUNT(fact_connectionrequest[CRModifiedDateTime]),filter(fact_connectionrequest,fact_connectionrequest[CRCreatedDateTime]>=now()-365), fact_connectionrequest[CRStatusName]="Baptism Complete"),0)
+				)
+
+	annotation PBI_Id = 92a4797875f644ec859ffc0dcf5d5947
+

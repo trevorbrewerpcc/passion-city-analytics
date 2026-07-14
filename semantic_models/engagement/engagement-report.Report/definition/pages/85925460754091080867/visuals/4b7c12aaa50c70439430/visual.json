@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "4b7c12aaa50c70439430",
+  "position": {
+    "x": 1066.9990234373677,
+    "y": 1713.87597656264,
+    "z": 33000,
+    "height": 115,
+    "width": 158,
+    "tabOrder": 30000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_groupmember"
+                    }
+                  },
+                  "Property": "G36_YTDCheckIns"
+                }
+              },
+              "queryRef": "dim_groupmember.G36_YTDCheckIns",
+              "nativeQueryRef": "New (Year To Date)",
+              "displayName": "New (Year To Date)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_groupmember"
+                  }
+                },
+                "Property": "G36_YTDCheckIns"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "45a5c9c554cb08eba92f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_groupmember"
+              }
+            },
+            "Property": "G36_YTDCheckIns"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "abacfe0a5037a1682bc8",
+  "position": {
+    "x": 20.2490234375,
+    "y": 2147.6259765625,
+    "z": 58000,
+    "height": 372,
+    "width": 616,
+    "tabOrder": 57000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LaunchEvents"
+                    }
+                  },
+                  "Property": "SSName"
+                }
+              },
+              "queryRef": "LaunchEvents.SSName",
+              "nativeQueryRef": "Status",
+              "active": true,
+              "displayName": "Status"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LaunchEvents"
+                        }
+                      },
+                      "Property": "365d"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(LaunchEvents.365d)",
+              "nativeQueryRef": "Past 365 Days",
+              "displayName": "Past 365 Days"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LaunchEvents"
+                        }
+                      },
+                      "Property": "YTD"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(LaunchEvents.YTD)",
+              "nativeQueryRef": "Year To Date",
+              "displayName": "Year To Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LaunchEvents"
+                        }
+                      },
+                      "Property": "3m"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(LaunchEvents.3m)",
+              "nativeQueryRef": "Past 3 Months",
+              "displayName": "Past 3 Months"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "LaunchEvents"
+                      }
+                    },
+                    "Property": "365d"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Unique People by Time Frame'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

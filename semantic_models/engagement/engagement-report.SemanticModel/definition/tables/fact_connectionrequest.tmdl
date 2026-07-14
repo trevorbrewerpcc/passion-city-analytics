@@ -1,0 +1,195 @@
+table fact_connectionrequest
+	lineageTag: eba95c86-daac-4795-98d0-f6dccd487dbe
+
+	column PersonId
+		dataType: int64
+		formatString: 0
+		lineageTag: a2109410-10f6-4937-88f4-6375e2064783
+		summarizeBy: none
+		sourceColumn: PersonId
+
+		annotation SummarizationSetBy = Automatic
+
+	column COId
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d67ed27-ac1f-40d3-b765-3a0b83dd0659
+		summarizeBy: count
+		sourceColumn: COId
+
+		annotation SummarizationSetBy = Automatic
+
+	column COName
+		dataType: string
+		lineageTag: ec09f27a-a308-4d7b-b54a-217c5beae3f1
+		summarizeBy: none
+		sourceColumn: COName
+
+		annotation SummarizationSetBy = Automatic
+
+	column COIsActive
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 65da7e93-8375-4d11-9950-61ce66c3b6c5
+		summarizeBy: none
+		sourceColumn: COIsActive
+
+		annotation SummarizationSetBy = Automatic
+
+	column COCreatedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 15ac7bf1-f2a0-4c04-baae-b98d4d8aff8b
+		summarizeBy: none
+		sourceColumn: COCreatedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 115af1f6-9ee7-4521-b85d-b0ba893737e3
+			defaultHierarchy: LocalDateTable_4dbe806a-40c0-4126-aab1-223243dd7af2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column COModifiedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 11a3e4a0-ea08-4772-9dc7-19c83c186eb2
+		summarizeBy: none
+		sourceColumn: COModifiedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 8da2c228-b999-4681-95aa-a2b0c65c666e
+			defaultHierarchy: LocalDateTable_0900751d-ab98-4940-a2e8-ea60a7a17d0c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTId
+		dataType: int64
+		formatString: 0
+		lineageTag: 462ffa92-2b1c-4d68-bf5e-307024a8a38d
+		summarizeBy: count
+		sourceColumn: CTId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTName
+		dataType: string
+		lineageTag: 702b4380-abea-440c-b6a5-00c47750d676
+		summarizeBy: none
+		sourceColumn: CTName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTDescription
+		dataType: string
+		lineageTag: f80ab429-23cf-4a73-8210-504e53afbc9d
+		summarizeBy: none
+		sourceColumn: CTDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column CRId
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e76abed-e22d-4ad8-84ab-89a3369fcd76
+		summarizeBy: count
+		sourceColumn: CRId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CRComments
+		dataType: string
+		lineageTag: 8e400a1b-6691-49fb-a79e-a21f512f1309
+		summarizeBy: none
+		sourceColumn: CRComments
+
+		annotation SummarizationSetBy = Automatic
+
+	column CRStatusId
+		dataType: int64
+		formatString: 0
+		lineageTag: 5495d1e5-a24c-4e17-bdfa-0cbb6c73f471
+		summarizeBy: count
+		sourceColumn: CRStatusId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CRStatusName
+		dataType: string
+		lineageTag: 9d319e0e-4d15-46f7-8bd8-da856a477827
+		summarizeBy: none
+		sourceColumn: CRStatusName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CRStateId
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e4c76d3-7e25-4a2c-9a91-387466a01b51
+		summarizeBy: count
+		sourceColumn: CRStateId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CRState
+		dataType: string
+		lineageTag: e3800c6c-9448-4275-93c1-7777cbdb9ca1
+		summarizeBy: none
+		sourceColumn: CRState
+
+		annotation SummarizationSetBy = Automatic
+
+	column CRCampusId
+		dataType: int64
+		formatString: 0
+		lineageTag: 09ad377f-db2a-4ced-8399-f6b729cc5e07
+		summarizeBy: count
+		sourceColumn: CRCampusId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CRCreatedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1ebc1625-5f44-4e68-acc4-d60679490d2a
+		summarizeBy: none
+		sourceColumn: CRCreatedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 224035a1-155f-4c48-856e-ffe85f758692
+			defaultHierarchy: LocalDateTable_2511803c-d60a-41cd-8573-f74aa5842d76.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column CRModifiedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c724ec94-a987-453c-835a-acd65517ea67
+		summarizeBy: none
+		sourceColumn: CRModifiedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 16cb3b11-3c33-493d-8730-59266e3aaa0a
+			defaultHierarchy: LocalDateTable_08aa4b4c-88f7-403c-a432-e7fbabc5c61a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_connectionrequest = m
+		mode: import
+		source =
+				let
+				    Source = PowerBI.Dataflows(null),
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Source{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"]}[Data],
+				    fact_connectionrequest1 = #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"{[entity="fact_connectionrequest"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(fact_connectionrequest1, each ([CTId] = 8))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

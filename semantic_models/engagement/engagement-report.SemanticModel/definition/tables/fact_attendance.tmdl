@@ -1,0 +1,354 @@
+table fact_attendance
+	lineageTag: c10a71ad-e8c8-4307-85cc-f5ff47c0fabc
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: 077987d6-60c8-4076-813f-df995de483c4
+		summarizeBy: count
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column AttendanceId
+		dataType: int64
+		formatString: 0
+		lineageTag: 03203c31-c87c-461f-a055-f9bfeffe11a7
+		summarizeBy: count
+		sourceColumn: AttendanceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column AttendanceDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e398fa9-53d0-447b-ab8a-af2c9613e911
+		summarizeBy: count
+		sourceColumn: AttendanceDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AttendanceTypeId
+		dataType: int64
+		formatString: 0
+		lineageTag: c1009086-1f8a-44eb-ad2a-37937cdf6cd3
+		summarizeBy: count
+		sourceColumn: AttendanceTypeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaysSinceLastAttendanceOfType
+		dataType: int64
+		formatString: 0
+		lineageTag: 5df88a5e-d1df-402a-979a-ca876b83cf66
+		summarizeBy: sum
+		sourceColumn: DaysSinceLastAttendanceOfType
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsFirstAttendanceOfType
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1adaba14-cf39-412e-81a9-b51eb1de23a0
+		summarizeBy: none
+		sourceColumn: IsFirstAttendanceOfType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Count
+		dataType: int64
+		formatString: 0
+		lineageTag: a6eca324-d468-4b05-b5f6-ec9d9dc06d2f
+		summarizeBy: sum
+		sourceColumn: Count
+
+		annotation SummarizationSetBy = Automatic
+
+	column PersonKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 7dd4709c-e4b5-435b-adb1-a4c98cb0fdbf
+		summarizeBy: count
+		sourceColumn: PersonKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrentPersonKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e3eef63-7908-4b84-a8bb-5838d4968d25
+		summarizeBy: count
+		sourceColumn: CurrentPersonKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationId
+		dataType: int64
+		formatString: 0
+		lineageTag: f60debb7-fa66-447c-953d-f6c0c3399d42
+		summarizeBy: count
+		sourceColumn: LocationId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CampusId
+		dataType: int64
+		formatString: 0
+		lineageTag: 07ce0e07-a9ff-43f9-8ab7-8f57596f4054
+		summarizeBy: none
+		sourceColumn: CampusId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduleId
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ac95e4c-58cd-4a71-97c0-5ac8f493014d
+		summarizeBy: count
+		sourceColumn: ScheduleId
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupId
+		dataType: int64
+		formatString: 0
+		lineageTag: 446ca4af-1416-454b-8a87-fa6a2ac38d0b
+		summarizeBy: count
+		sourceColumn: GroupId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PersonAliasId
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ed62368-139a-4631-a600-f13dfb36bfcf
+		summarizeBy: count
+		sourceColumn: PersonAliasId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeviceId
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fa1420e-ac59-4933-9574-7e9568d7ffab
+		summarizeBy: count
+		sourceColumn: DeviceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column SearchTypeName
+		dataType: string
+		lineageTag: 9f4eca29-b2cf-49ca-a52a-7b8b871d5d3b
+		summarizeBy: none
+		sourceColumn: SearchTypeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 38980147-c251-4c8e-83b5-88f9434c22be
+		summarizeBy: none
+		sourceColumn: StartDateTime
+
+		variation Variation
+			isDefault
+			relationship: 91634543-26f2-440f-bfc3-eeb55cd7b627
+			defaultHierarchy: LocalDateTable_3b37a3a4-bed9-46a5-9a09-88e74cf3fa5d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fdc3c850-c0dd-4a80-8a51-2d9fa9d4bbe3
+		summarizeBy: none
+		sourceColumn: EndDateTime
+
+		variation Variation
+			isDefault
+			relationship: b14f4e2a-667e-4d38-aa14-242abaca97a7
+			defaultHierarchy: LocalDateTable_401094d0-3b59-4fd3-85cb-8170727c9bd7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column RSVP
+		dataType: int64
+		formatString: 0
+		lineageTag: 6cd32800-800a-47f3-aba8-b640d9bfbc8b
+		summarizeBy: sum
+		sourceColumn: RSVP
+
+		annotation SummarizationSetBy = Automatic
+
+	column DidAttend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c2b29f6e-fe94-4c46-8612-01d9311fbe90
+		summarizeBy: none
+		sourceColumn: DidAttend
+
+		annotation SummarizationSetBy = Automatic
+
+	column Note
+		dataType: string
+		lineageTag: 44ed601a-c0f9-463e-9f89-33953feb75ad
+		summarizeBy: none
+		sourceColumn: Note
+
+		annotation SummarizationSetBy = Automatic
+
+	column SundayDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8d1e13ae-2851-444e-b0b9-6ce3bc54e2e4
+		summarizeBy: none
+		sourceColumn: SundayDate
+
+		variation Variation
+			isDefault
+			relationship: 3cd7f295-b069-4e3f-8b0e-24c6cae7808f
+			defaultHierarchy: LocalDateTable_2a0c48db-14f1-4ca2-904e-0af5169a0159.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Guid
+		dataType: string
+		lineageTag: 8b747dee-087d-49c5-ba3d-2ae22325c600
+		summarizeBy: none
+		sourceColumn: Guid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignId
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ae4c5e1-338d-48c2-9015-4ddae69680a5
+		summarizeBy: count
+		sourceColumn: ForeignId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignGuid
+		dataType: string
+		lineageTag: 8a27ac96-f0a3-451d-bc2d-f876a81f26b7
+		summarizeBy: none
+		sourceColumn: ForeignGuid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignKey
+		dataType: string
+		lineageTag: 8895d13e-32c0-4eef-abbe-23a06a6b5aa0
+		summarizeBy: none
+		sourceColumn: ForeignKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column FamilyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ab1864ff-3df0-427b-b696-c246ad10c791
+		summarizeBy: count
+		sourceColumn: FamilyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrentFamilyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: cf330b9c-94e6-40db-ae09-651f83a394da
+		summarizeBy: count
+		sourceColumn: CurrentFamilyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AttendanceTypeName
+		dataType: string
+		lineageTag: d40ec46d-0dae-4838-8b5f-a196e4438810
+		summarizeBy: none
+		sourceColumn: AttendanceTypeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationName
+		dataType: string
+		lineageTag: 7143db34-c365-42cf-b116-a2c7cf37f9b2
+		summarizeBy: none
+		sourceColumn: LocationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CampusName
+		dataType: string
+		lineageTag: 9a9b0a4f-5617-429a-95d9-1a2a24a271d8
+		summarizeBy: none
+		sourceColumn: CampusName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CampusShortCode
+		dataType: string
+		lineageTag: 4b162795-33d2-43a8-a95b-519e49cd64f4
+		summarizeBy: none
+		sourceColumn: CampusShortCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduleName
+		dataType: string
+		lineageTag: 4739dae2-6f97-4960-9f32-5bcb6a0d965d
+		summarizeBy: none
+		sourceColumn: ScheduleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupName
+		dataType: string
+		lineageTag: eb8d4e04-3647-4f4d-9bb1-85de7d631da3
+		summarizeBy: none
+		sourceColumn: GroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column AreaName
+		dataType: string
+		lineageTag: 0891ef6c-6004-404a-9cb0-3092814879be
+		summarizeBy: none
+		sourceColumn: AreaName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeviceName
+		dataType: string
+		lineageTag: 9b4a9f81-cc25-4272-905f-9dff63d98789
+		summarizeBy: none
+		sourceColumn: DeviceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column RSVPStatus
+		dataType: string
+		lineageTag: 6b8a4614-9c4e-4c0f-b705-7a3043eadd81
+		summarizeBy: none
+		sourceColumn: RSVPStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_attendance = m
+		mode: import
+		source =
+				let
+				    Source = PowerBI.Dataflows(null),
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Source{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"]}[Data],
+				    fact_attendance1 = #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"{[entity="fact_attendance"]}[Data]
+				in
+				    fact_attendance1
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

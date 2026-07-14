@@ -1,0 +1,42 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "300cc67e0314bad178a8",
+  "position": {
+    "x": 963.24902343749977,
+    "y": 1930.8759765625,
+    "z": 41000,
+    "height": 115,
+    "width": 215,
+    "tabOrder": 38000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_groupmember"
+                    }
+                  },
+                  "Property": "YTDCollective"
+                }
+              },
+              "queryRef": "dim_groupmember.YTDCollective",
+              "nativeQueryRef": "Year To Date",
+              "displayName": "Year To Date"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

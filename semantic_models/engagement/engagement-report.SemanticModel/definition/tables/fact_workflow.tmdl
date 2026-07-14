@@ -1,0 +1,113 @@
+table fact_workflow
+	lineageTag: 3cb5002c-3719-41e8-9aa7-93693eab851b
+
+	column WTId
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b79c2d3-5262-4710-ae5f-0f21b15006a2
+		summarizeBy: count
+		sourceColumn: WTId
+
+		annotation SummarizationSetBy = Automatic
+
+	column WTName
+		dataType: string
+		lineageTag: a7e8e914-e7d9-46e2-aca3-16b0d59f97da
+		summarizeBy: none
+		sourceColumn: WTName
+
+		annotation SummarizationSetBy = Automatic
+
+	column WTDescription
+		dataType: string
+		lineageTag: 55027d13-8bf9-4cb2-bc6a-127a01f6a498
+		summarizeBy: none
+		sourceColumn: WTDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column WId
+		dataType: int64
+		formatString: 0
+		lineageTag: 244438c8-1318-4b83-9c77-4f501920c137
+		summarizeBy: none
+		sourceColumn: WId
+
+		annotation SummarizationSetBy = Automatic
+
+	column WName
+		dataType: string
+		lineageTag: 8a122ebb-403a-4f24-93e0-2bafc8c08db7
+		summarizeBy: none
+		sourceColumn: WName
+
+		annotation SummarizationSetBy = Automatic
+
+	column WDescription
+		dataType: string
+		lineageTag: 52b4ae7c-6770-49a0-b361-743b30fc94d2
+		summarizeBy: none
+		sourceColumn: WDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column WStatus
+		dataType: string
+		lineageTag: 5d713b4a-75e2-4f46-92e8-9bb1caa5f48f
+		summarizeBy: none
+		sourceColumn: WStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column WActivatedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 71477323-e879-4330-bb4f-c1401d0e13e2
+		summarizeBy: none
+		sourceColumn: WActivatedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 77238677-f1a0-4353-b877-0c5f6fb99f08
+			defaultHierarchy: LocalDateTable_f3eaebe0-698b-40c3-8cb4-793b91fb7dc3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column WCompletedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 585ce14a-3b9d-465a-83ae-c4ad15e06e47
+		summarizeBy: none
+		sourceColumn: WCompletedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 6df428ec-b80f-435a-8f6f-99a3c8588ae1
+			defaultHierarchy: LocalDateTable_24d54e3a-efb5-4048-865f-aa9c0ee0823f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column WWorkflowId
+		dataType: string
+		lineageTag: a02bd506-1feb-4213-9c3c-4de34439595c
+		summarizeBy: none
+		sourceColumn: WWorkflowId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_workflow = m
+		mode: import
+		source =
+				let
+				    Source = PowerBI.Dataflows(null),
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Source{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"]}[Data],
+				    fact_workflow1 = #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"{[entity="fact_workflow"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(fact_workflow1, each ([WTId] = 307))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

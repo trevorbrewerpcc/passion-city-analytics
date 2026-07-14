@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "3da312f0890067d92900",
+  "position": {
+    "x": 1077.7499923706052,
+    "y": 530,
+    "z": 13000,
+    "height": 115,
+    "width": 125,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DH_SundaySummary"
+                    }
+                  },
+                  "Property": "NewDHYTD"
+                }
+              },
+              "queryRef": "DH_SundaySummary.NewDHYTD",
+              "nativeQueryRef": "Year To Date",
+              "displayName": "Year To Date"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DH_SundaySummary"
+                  }
+                },
+                "Property": "NewDHYTD"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,263 @@
+table dim_campus
+	lineageTag: 674c8b67-e099-4d4e-b94c-c6d5d7973484
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: 37e1e067-e15c-49d8-97c1-0e39d679c419
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column CampusId
+		dataType: int64
+		formatString: 0
+		lineageTag: 722a189c-bc3b-4c1f-93a4-479e215b25a4
+		summarizeBy: none
+		sourceColumn: CampusId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 454eaca5-7a3f-43de-b5ec-813680745577
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: cf418791-cc2e-46a3-94a1-31e42b54d3ec
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsActive
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4aee4d90-3a7b-48ba-9acd-8e393ee7d922
+		summarizeBy: none
+		sourceColumn: IsActive
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShortCode
+		dataType: string
+		lineageTag: 7247057c-a774-451c-b14e-df5631df682a
+		summarizeBy: none
+		sourceColumn: ShortCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Url
+		dataType: string
+		lineageTag: 9258e524-2892-4a04-b3fc-f1a312b9e7ba
+		summarizeBy: none
+		sourceColumn: Url
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationId
+		dataType: int64
+		formatString: 0
+		lineageTag: 23267ecb-1307-4d58-bb6e-2982edda6a86
+		summarizeBy: none
+		sourceColumn: LocationId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumber
+		dataType: string
+		lineageTag: 00fffc85-02ce-4977-82fc-05e1c604fec1
+		summarizeBy: none
+		sourceColumn: PhoneNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column LeaderPersonAliasId
+		dataType: int64
+		formatString: 0
+		lineageTag: 4468a3e8-4b12-45ee-8694-34ef8f6843ac
+		summarizeBy: none
+		sourceColumn: LeaderPersonAliasId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceTimes
+		dataType: string
+		lineageTag: acdb222d-93d1-4048-b111-d9b5f992c677
+		summarizeBy: none
+		sourceColumn: ServiceTimes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ecb615b-a398-4745-8c69-0adbfc0cb276
+		summarizeBy: none
+		sourceColumn: Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column Count
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e79b79f-a135-43ae-9650-743b8710d770
+		summarizeBy: none
+		sourceColumn: Count
+
+		annotation SummarizationSetBy = Automatic
+
+	column Guid
+		dataType: string
+		lineageTag: 8252b4b1-efbd-4438-b9b7-0ffecb7fa98c
+		summarizeBy: none
+		sourceColumn: Guid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignId
+		dataType: int64
+		formatString: 0
+		lineageTag: b789417e-e9f4-4947-81b9-24431b99d5cb
+		summarizeBy: none
+		sourceColumn: ForeignId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignGuid
+		dataType: string
+		lineageTag: a45595b9-fcaf-476a-b52f-9f3101a9739c
+		summarizeBy: none
+		sourceColumn: ForeignGuid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignKey
+		dataType: string
+		lineageTag: 4eb24738-9dee-4cfb-845f-b2a96075df02
+		summarizeBy: none
+		sourceColumn: ForeignKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column LeaderFullName
+		dataType: string
+		lineageTag: bb2a7f17-e70a-4ee8-8098-76eea7a47b2b
+		summarizeBy: none
+		sourceColumn: LeaderFullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LeaderPersonId
+		dataType: int64
+		formatString: 0
+		lineageTag: 91c7d33e-30be-4d77-bf90-5adf17754893
+		summarizeBy: none
+		sourceColumn: LeaderPersonId
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressStreet1
+		dataType: string
+		lineageTag: 3c109aa2-aa7c-4983-889e-c4891566d8ba
+		summarizeBy: none
+		sourceColumn: AddressStreet1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressStreet2
+		dataType: string
+		lineageTag: 36c6d254-2b46-4ad6-a61c-bc021da86851
+		summarizeBy: none
+		sourceColumn: AddressStreet2
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressCity
+		dataType: string
+		lineageTag: 82aa6c17-c637-45fe-8c1d-168b9b429f2e
+		summarizeBy: none
+		sourceColumn: AddressCity
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressCounty
+		dataType: string
+		lineageTag: 00f14530-9164-4b17-9d31-f0b31f473465
+		summarizeBy: none
+		sourceColumn: AddressCounty
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressState
+		dataType: string
+		lineageTag: 710cfa8d-f3cd-43ff-a0b8-6a85c65737c4
+		summarizeBy: none
+		sourceColumn: AddressState
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressCountry
+		dataType: string
+		lineageTag: 60dd6f8b-f4ac-4518-8ea8-42874a166c3d
+		summarizeBy: none
+		sourceColumn: AddressCountry
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressPostalCode
+		dataType: string
+		lineageTag: 870b31ef-8408-4b77-8bbf-096b804e5b06
+		summarizeBy: none
+		sourceColumn: AddressPostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLatitude
+		dataType: double
+		lineageTag: 0c8bb4f2-45a6-48ec-b9b0-449bb10448d3
+		summarizeBy: none
+		sourceColumn: AddressLatitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AddressLongitude
+		dataType: double
+		lineageTag: 126a940e-a977-4b8d-ab97-6df51b35e8ad
+		summarizeBy: none
+		sourceColumn: AddressLongitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AddressFull
+		dataType: string
+		lineageTag: c8509edf-1773-4862-a27b-23b11db9a1a8
+		summarizeBy: none
+		sourceColumn: AddressFull
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_campus = m
+		mode: import
+		source =
+				let
+				    Source = PowerBI.Dataflows(null),
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Source{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"]}[Data],
+				    dim_campus1 = #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"{[entity="dim_campus"]}[Data]
+				in
+				    dim_campus1
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

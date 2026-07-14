@@ -1,0 +1,83 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["fact_checkin","fact_connectionrequest","fact_workflow","dim_campus","dim_attributevalue_JIL","dim_groupmember","dim_group","dim_person","fact_attendance","fact_step"]
+
+annotation PBI_ProTooling = ["MCP-PBIModeling","DevMode"]
+
+ref table fact_checkin
+ref table DateTableTemplate_cccb8d8f-e228-41fd-b5e3-5b00028f24aa
+ref table LocalDateTable_6c259c09-0b3a-4e3a-9098-c2ccbe63f786
+ref table LocalDateTable_fced5ba1-1319-4d40-8b62-7486502b8195
+ref table LocalDateTable_33a14ed8-e871-4098-912d-3cf155852d56
+ref table LocalDateTable_f20f2381-78b7-491c-808c-e8702da5d2ce
+ref table LocalDateTable_43e8e3c6-998b-4344-b9eb-8a6956967f3f
+ref table LocalDateTable_e177401c-0086-494c-85c8-a0ad93ee8e58
+ref table LocalDateTable_c9172b58-653f-4db7-9ede-3c4240387b60
+ref table fact_connectionrequest
+ref table LocalDateTable_4dbe806a-40c0-4126-aab1-223243dd7af2
+ref table LocalDateTable_0900751d-ab98-4940-a2e8-ea60a7a17d0c
+ref table LocalDateTable_2511803c-d60a-41cd-8573-f74aa5842d76
+ref table LocalDateTable_08aa4b4c-88f7-403c-a432-e7fbabc5c61a
+ref table fact_workflow
+ref table LocalDateTable_f3eaebe0-698b-40c3-8cb4-793b91fb7dc3
+ref table LocalDateTable_24d54e3a-efb5-4048-865f-aa9c0ee0823f
+ref table dim_campus
+ref table dim_attributevalue_JIL
+ref table LocalDateTable_87592105-710d-472e-b8c6-c6b64cc65aec
+ref table LocalDateTable_9c0c6ec2-3363-4519-b368-bf064f00a625
+ref table LocalDateTable_587279c2-8206-41aa-97fe-124b21a4ecf3
+ref table dim_groupmember
+ref table LocalDateTable_4b1983be-f8ec-4ee1-9cba-9fc23d5f6ad0
+ref table LocalDateTable_f8b0bcad-f387-489d-9fd6-ba6d7e344f4d
+ref table LocalDateTable_1722ca72-5f4f-4d03-ae79-5d49c1abd3c8
+ref table LocalDateTable_2f1d3ad2-bd00-479c-94f5-5628e2f9fd86
+ref table LocalDateTable_e79fa45d-2506-45cb-b49a-b19e95e2b19d
+ref table LocalDateTable_a741e68d-0a0a-4b35-8796-d140d15ab34b
+ref table dim_group
+ref table LocalDateTable_57f88bf0-e31d-4bf9-9304-db94ba5d2656
+ref table LocalDateTable_6fac8943-4fc7-42b0-9bca-dd5b63710467
+ref table LocalDateTable_1131afd0-02ad-434e-8214-67d47c7bd576
+ref table LocalDateTable_4c25185d-67e2-4dda-818d-cfc54951be83
+ref table dim_person
+ref table LocalDateTable_7a1628d4-8e7d-4d2e-bf9f-319b8a77a225
+ref table LocalDateTable_914db71c-adfd-43e0-bce8-407a718d2985
+ref table LocalDateTable_4eb43979-9d50-473a-8d3d-a83f335ad339
+ref table LocalDateTable_47a6a2a2-1b95-4b7e-8fa9-86eee3b47e0f
+ref table LocalDateTable_e280dd46-e2ff-4c82-8a94-73176b64ac5d
+ref table LocalDateTable_606cca5e-28a1-4267-b1f6-cf769bc4bf5b
+ref table LocalDateTable_7d7ab734-422a-4cc8-b714-c3a4d8b09c78
+ref table LocalDateTable_3393ea33-f1a4-4455-9e21-e6a3c2d6eac2
+ref table LocalDateTable_f440564d-2597-47b3-9273-6cb2b637404c
+ref table LocalDateTable_d482c40f-830a-4274-9642-0f3d1104e1f4
+ref table LocalDateTable_9d089402-40f0-4301-a74f-e231f3acda26
+ref table fact_attendance
+ref table LocalDateTable_3b37a3a4-bed9-46a5-9a09-88e74cf3fa5d
+ref table LocalDateTable_401094d0-3b59-4fd3-85cb-8170727c9bd7
+ref table LocalDateTable_2a0c48db-14f1-4ca2-904e-0af5169a0159
+ref table LocalDateTable_23fcdc83-7553-4a01-922d-68f6cdb06453
+ref table fact_step
+ref table LocalDateTable_9317cc9b-9e6d-4786-9798-9280ec23ee02
+ref table LocalDateTable_f74cd71d-e1d4-4482-9883-3184c6d9e005
+ref table LocalDateTable_f3c12d13-3b10-4999-8c90-39662d985db5
+ref table LocalDateTable_dbf1e58a-711e-43ee-bcd8-88b62a73411c
+ref table LocalDateTable_8439f80d-fda7-495d-a887-555e31f06379
+ref table LocalDateTable_64631c8f-8eb1-40ff-9c9a-1bec76c375f3
+ref table LocalDateTable_d8ab5542-0ebf-4751-a2bb-7abc84d93e08
+ref table LocalDateTable_19e52d2e-1304-47eb-b9eb-cdebd8db5936
+ref table LocalDateTable_a210c7c7-a1cc-4666-94d0-3b6f49869907
+ref table LaunchEvents
+ref table BaptismSummary
+ref table DH_SundaySummary
+ref table LocalDateTable_1a1dd851-272d-457f-bf61-249de5739120
+ref table ComparisonData
+
+ref cultureInfo en-US
+

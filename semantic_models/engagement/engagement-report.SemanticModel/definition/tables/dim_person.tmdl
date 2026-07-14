@@ -1,0 +1,939 @@
+table dim_person
+	lineageTag: b00c233b-f6e3-47e4-8320-7a52756391c3
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: a1d4a250-c640-45ef-8634-863608f757a2
+		summarizeBy: count
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column PersonId
+		dataType: int64
+		formatString: 0
+		lineageTag: db3cc2dd-8621-4ed9-9c63-6d4eeda8d3b9
+		summarizeBy: none
+		sourceColumn: PersonId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrentRowIndicator
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: cdaeed3e-ff27-4960-ac4f-7ac3c623fb47
+		summarizeBy: none
+		sourceColumn: CurrentRowIndicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column EffectiveDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 60d34ebc-41c8-4084-9cb4-c2b2d950e75e
+		summarizeBy: none
+		sourceColumn: EffectiveDate
+
+		variation Variation
+			isDefault
+			relationship: dbf9e323-6410-4d7c-89f6-d78c4620a927
+			defaultHierarchy: LocalDateTable_7a1628d4-8e7d-4d2e-bf9f-319b8a77a225.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ExpireDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 429a27db-11cc-4c70-90d4-7bed0dac933d
+		summarizeBy: none
+		sourceColumn: ExpireDate
+
+		variation Variation
+			isDefault
+			relationship: 5fae265a-2276-4617-a6dc-0af489f9edfb
+			defaultHierarchy: LocalDateTable_914db71c-adfd-43e0-bce8-407a718d2985.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PrimaryFamilyId
+		dataType: int64
+		formatString: 0
+		lineageTag: 20ce9500-36d1-4be2-a13f-410fa6590626
+		summarizeBy: count
+		sourceColumn: PrimaryFamilyId
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecordTypeValueId
+		dataType: int64
+		formatString: 0
+		lineageTag: ff42ce05-681f-438e-b2ce-664aeda894c1
+		summarizeBy: count
+		sourceColumn: RecordTypeValueId
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecordStatusValueId
+		dataType: int64
+		formatString: 0
+		lineageTag: e3e88656-f89f-42ff-9c58-840d0a538540
+		summarizeBy: count
+		sourceColumn: RecordStatusValueId
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecordStatusLastModifiedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 90b6cd31-a6a6-457a-a82d-dd4d2002d65c
+		summarizeBy: none
+		sourceColumn: RecordStatusLastModifiedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 4dba274d-2309-4748-84cc-ad3b4cf5cbd5
+			defaultHierarchy: LocalDateTable_4eb43979-9d50-473a-8d3d-a83f335ad339.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecordStatusReasonValueId
+		dataType: int64
+		formatString: 0
+		lineageTag: b1dba9e0-2d0e-453f-bb90-cf09d01f1fc7
+		summarizeBy: count
+		sourceColumn: RecordStatusReasonValueId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConnectionStatusValueId
+		dataType: int64
+		formatString: 0
+		lineageTag: be6add4a-dd8e-40b3-a761-c05f7d8d89cb
+		summarizeBy: count
+		sourceColumn: ConnectionStatusValueId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReviewReasonValueId
+		dataType: int64
+		formatString: 0
+		lineageTag: 19b6352c-9697-434b-a13d-d0d9b765aa52
+		summarizeBy: count
+		sourceColumn: ReviewReasonValueId
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsDeceased
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: bf420f9c-fc3c-48dd-b592-484546757533
+		summarizeBy: none
+		sourceColumn: IsDeceased
+
+		annotation SummarizationSetBy = Automatic
+
+	column TitleValueId
+		dataType: int64
+		formatString: 0
+		lineageTag: 24dceb68-b31e-489f-bc54-4978094f3356
+		summarizeBy: count
+		sourceColumn: TitleValueId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: af788585-b1f1-4b6e-9ffb-a2911e1bd46d
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column NickName
+		dataType: string
+		lineageTag: 6ba2cef9-9ee4-433e-893c-9eb8a6ffa33b
+		summarizeBy: none
+		sourceColumn: NickName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		lineageTag: b93dca42-8b90-4e81-9825-e81368e98821
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: f45326a5-a8a0-484f-9722-afa0eaadb194
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuffixValueId
+		dataType: int64
+		formatString: 0
+		lineageTag: 298cda07-fe3d-432c-bff9-98a2690867c6
+		summarizeBy: count
+		sourceColumn: SuffixValueId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhotoId
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d0d84b1-f703-4bd1-96ff-ec7115972006
+		summarizeBy: count
+		sourceColumn: PhotoId
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDay
+		dataType: int64
+		formatString: 0
+		lineageTag: 49bde8e7-f7ee-4fd4-8985-526f79416080
+		summarizeBy: sum
+		sourceColumn: BirthDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 48e0caa3-8b8b-43c5-a9b0-ef3972a9a486
+		summarizeBy: sum
+		sourceColumn: BirthMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthYear
+		dataType: int64
+		formatString: 0
+		lineageTag: de1014c7-b109-49df-a1b2-8ddb9961db4b
+		summarizeBy: sum
+		sourceColumn: BirthYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 149a1731-12b3-4f8f-8943-164441d2457d
+		summarizeBy: count
+		sourceColumn: BirthDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: 932c4ff0-3069-4c3f-a2a2-14ce56f4fa07
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b22d038-f146-4aff-bb81-9e8bae7005ed
+		summarizeBy: sum
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaritalStatusValueId
+		dataType: int64
+		formatString: 0
+		lineageTag: 107e79e7-51d9-4069-a706-9f1acb62f54c
+		summarizeBy: count
+		sourceColumn: MaritalStatusValueId
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnniversaryDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f40f0ff8-ff39-4a7c-9180-616eca89097d
+		summarizeBy: none
+		sourceColumn: AnniversaryDate
+
+		variation Variation
+			isDefault
+			relationship: f28c3695-82cc-434a-998b-f519e579c813
+			defaultHierarchy: LocalDateTable_47a6a2a2-1b95-4b7e-8fa9-86eee3b47e0f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column GraduationYear
+		dataType: int64
+		formatString: 0
+		lineageTag: d4ad83de-c465-468c-9813-23be26d6b978
+		summarizeBy: sum
+		sourceColumn: GraduationYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column GivingGroupId
+		dataType: int64
+		formatString: 0
+		lineageTag: dd1db1d1-95ad-4789-8827-15bd8f6978be
+		summarizeBy: count
+		sourceColumn: GivingGroupId
+
+		annotation SummarizationSetBy = Automatic
+
+	column GivingId
+		dataType: string
+		lineageTag: 88e46516-593e-45ff-a23e-59302eabb418
+		summarizeBy: none
+		sourceColumn: GivingId
+
+		annotation SummarizationSetBy = Automatic
+
+	column GivingLeaderId
+		dataType: int64
+		formatString: 0
+		lineageTag: 22409ffe-0725-4c5e-81bc-d97c0ee5e745
+		summarizeBy: count
+		sourceColumn: GivingLeaderId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: 8793324b-be00-4f30-94cb-65cd08a0090c
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailPreference
+		dataType: int64
+		formatString: 0
+		lineageTag: ef0a6b2b-be05-48cd-882e-bcdb23e239c0
+		summarizeBy: sum
+		sourceColumn: EmailPreference
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReviewReasonNote
+		dataType: string
+		lineageTag: 5edb01dc-1992-4b39-a23c-8b6c4f19c7b9
+		summarizeBy: none
+		sourceColumn: ReviewReasonNote
+
+		annotation SummarizationSetBy = Automatic
+
+	column InactiveReasonNote
+		dataType: string
+		lineageTag: c5068084-c03d-42b4-93d8-80f3f1e4f46b
+		summarizeBy: none
+		sourceColumn: InactiveReasonNote
+
+		annotation SummarizationSetBy = Automatic
+
+	column SystemNote
+		dataType: string
+		lineageTag: 9e8a4c16-b548-4fe4-b342-f1cbd85a1f68
+		summarizeBy: none
+		sourceColumn: SystemNote
+
+		annotation SummarizationSetBy = Automatic
+
+	column ViewedCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 52ef5097-2618-435f-aedc-7c72378d92c4
+		summarizeBy: sum
+		sourceColumn: ViewedCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column Guid
+		dataType: string
+		lineageTag: 2afc9b99-aa0e-4c56-af20-0eb970eb1fa9
+		summarizeBy: none
+		sourceColumn: Guid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignId
+		dataType: int64
+		formatString: 0
+		lineageTag: 553ab7a3-d573-495f-b6a6-64f02115f3fa
+		summarizeBy: count
+		sourceColumn: ForeignId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignGuid
+		dataType: string
+		lineageTag: 054ab6a2-84d1-4f82-8f1b-13af85f4e324
+		summarizeBy: none
+		sourceColumn: ForeignGuid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForeignKey
+		dataType: string
+		lineageTag: 2c2d2b03-e093-4bbe-9c47-7e51b2ad65cb
+		summarizeBy: none
+		sourceColumn: ForeignKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Count
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ffc0ee7-3922-47c3-91c8-c8ab89a6938a
+		summarizeBy: sum
+		sourceColumn: Count
+
+		annotation SummarizationSetBy = Automatic
+
+	column core_CurrentlyAnEra
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: bcb0ff07-4f15-4e17-87a4-288193cec775
+		summarizeBy: none
+		sourceColumn: core_CurrentlyAnEra
+
+		annotation SummarizationSetBy = Automatic
+
+	column core_EraStartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0918500d-635c-4571-9c3a-eac8be997db2
+		summarizeBy: none
+		sourceColumn: core_EraStartDate
+
+		variation Variation
+			isDefault
+			relationship: bd8dd00f-d3f2-44d7-b6fd-3bdcd6c49218
+			defaultHierarchy: LocalDateTable_e280dd46-e2ff-4c82-8a94-73176b64ac5d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column core_EraFirstGave
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: aeccc670-7f8c-476f-ae4d-8b218b5b8cc5
+		summarizeBy: none
+		sourceColumn: core_EraFirstGave
+
+		variation Variation
+			isDefault
+			relationship: 18d4f96b-9a9b-4445-b92d-80229014d235
+			defaultHierarchy: LocalDateTable_606cca5e-28a1-4267-b1f6-cf769bc4bf5b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column core_EraLastGave
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5e1f759f-acb1-43b8-bb8a-60d359a98987
+		summarizeBy: none
+		sourceColumn: core_EraLastGave
+
+		variation Variation
+			isDefault
+			relationship: ee4f89bc-4420-48eb-9e67-740667fe1398
+			defaultHierarchy: LocalDateTable_7d7ab734-422a-4cc8-b714-c3a4d8b09c78.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column core_TimesCheckedIn16Wks
+		dataType: double
+		lineageTag: 0d1e1784-d6e4-4674-9ba1-299abdb287c5
+		summarizeBy: sum
+		sourceColumn: core_TimesCheckedIn16Wks
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column core_EraTimesGiven52Wks
+		dataType: double
+		lineageTag: 9bee4691-4033-4c96-bafd-f8487c7a01ca
+		summarizeBy: sum
+		sourceColumn: core_EraTimesGiven52Wks
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column core_EraTimesGiven6Wks
+		dataType: double
+		lineageTag: b039c2f2-2572-4c75-9ed1-c0b610a2ff39
+		summarizeBy: sum
+		sourceColumn: core_EraTimesGiven6Wks
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CurrentJourneyGivingStage
+		dataType: string
+		lineageTag: abad112a-5162-4290-97ec-ef31f2668ffa
+		summarizeBy: none
+		sourceColumn: CurrentJourneyGivingStage
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrequencyLabel
+		dataType: string
+		lineageTag: a50e38c3-afa3-491e-8f36-97af7b931134
+		summarizeBy: none
+		sourceColumn: FrequencyLabel
+
+		annotation SummarizationSetBy = Automatic
+
+	column GiftAmountIQR
+		dataType: double
+		lineageTag: 14ad22e3-7d80-4463-9dfe-f9ca46265b3d
+		summarizeBy: sum
+		sourceColumn: GiftAmountIQR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GiftAmountMedian
+		dataType: double
+		lineageTag: 9c615593-faac-4271-bc1e-b415175d92ee
+		summarizeBy: sum
+		sourceColumn: GiftAmountMedian
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GiftFrequencyDaysMean
+		dataType: double
+		lineageTag: f297fd04-1c18-4b08-890b-d6b756ebc9ae
+		summarizeBy: sum
+		sourceColumn: GiftFrequencyDaysMean
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GiftFrequencyDaysStandardDeviation
+		dataType: double
+		lineageTag: 3b00a82c-d55a-4bcf-9295-b5413024f141
+		summarizeBy: sum
+		sourceColumn: GiftFrequencyDaysStandardDeviation
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GivingBin
+		dataType: double
+		lineageTag: a5df06fe-7e23-4713-a81e-c48e8fd456ae
+		summarizeBy: sum
+		sourceColumn: GivingBin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GivingPercentile
+		dataType: double
+		lineageTag: f2470987-dd9d-484d-ac74-e98b11c9752d
+		summarizeBy: sum
+		sourceColumn: GivingPercentile
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LastClassificationRunDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 15dc5dad-0822-4240-aa2c-6ec17eaedc33
+		summarizeBy: none
+		sourceColumn: LastClassificationRunDateTime
+
+		variation Variation
+			isDefault
+			relationship: 45301dab-b67a-44e9-8b96-d1e3775c20e0
+			defaultHierarchy: LocalDateTable_3393ea33-f1a4-4455-9e21-e6a3c2d6eac2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column NextExpectedGiftDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 476bebae-e6cd-4d7b-9b83-68da98d75e69
+		summarizeBy: none
+		sourceColumn: NextExpectedGiftDate
+
+		variation Variation
+			isDefault
+			relationship: f1043395-d1d2-4f4e-8b9b-f3b04d5cc3ca
+			defaultHierarchy: LocalDateTable_f440564d-2597-47b3-9273-6cb2b637404c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column PreferredCurrency
+		dataType: string
+		lineageTag: ab5aa033-5605-472b-bf10-0471bef9856e
+		summarizeBy: none
+		sourceColumn: PreferredCurrency
+
+		annotation SummarizationSetBy = Automatic
+
+	column PreviousJourneyGivingStage
+		dataType: string
+		lineageTag: 456dad98-80b5-4c90-b4a8-097be2bc1d98
+		summarizeBy: none
+		sourceColumn: PreviousJourneyGivingStage
+
+		annotation SummarizationSetBy = Automatic
+
+	column JourneyGivingStageChangeDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 20d846b2-0dfb-4f35-89f2-9103b7922abc
+		summarizeBy: none
+		sourceColumn: JourneyGivingStageChangeDate
+
+		variation Variation
+			isDefault
+			relationship: bfaf33f4-3d6f-4cde-a69d-535e61300589
+			defaultHierarchy: LocalDateTable_d482c40f-830a-4274-9642-0f3d1104e1f4.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column DonorFundsOrganization
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 0629e8c3-f6ab-466a-ba25-fe09b1435b8b
+		summarizeBy: none
+		sourceColumn: DonorFundsOrganization
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaritalStatus
+		dataType: string
+		lineageTag: 49d57c0e-9544-4c75-9f0a-4e9c8fb53332
+		summarizeBy: none
+		sourceColumn: MaritalStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConnectionStatus
+		dataType: string
+		lineageTag: 4d9caf9a-8618-456d-b143-ee7aab89c249
+		summarizeBy: none
+		sourceColumn: ConnectionStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReviewReason
+		dataType: string
+		lineageTag: 17c7169f-5639-48c8-aa06-0ec015c12f15
+		summarizeBy: none
+		sourceColumn: ReviewReason
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecordStatus
+		dataType: string
+		lineageTag: 8e40b220-bdef-4b74-a979-279148199629
+		summarizeBy: none
+		sourceColumn: RecordStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecordStatusReason
+		dataType: string
+		lineageTag: 82c9bbc1-1ee5-4acc-ae91-46891bcc4d36
+		summarizeBy: none
+		sourceColumn: RecordStatusReason
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecordType
+		dataType: string
+		lineageTag: 9d8ed355-5351-4baf-90b5-86beb6677716
+		summarizeBy: none
+		sourceColumn: RecordType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suffix
+		dataType: string
+		lineageTag: 2a30e1bd-e555-43cf-b6c8-4f75a38d1609
+		summarizeBy: none
+		sourceColumn: Suffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: dee2883d-3551-424c-9fc9-b89509d20d8d
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column GenderText
+		dataType: string
+		lineageTag: b57c138b-c1d8-43ba-b8a0-7d6e6fc12719
+		summarizeBy: none
+		sourceColumn: GenderText
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailPreferenceText
+		dataType: string
+		lineageTag: 7513d154-742a-45ec-b1e1-ea5bab1288ee
+		summarizeBy: none
+		sourceColumn: EmailPreferenceText
+
+		annotation SummarizationSetBy = Automatic
+
+	column CampusId
+		dataType: int64
+		formatString: 0
+		lineageTag: 1dcad2ee-f7e3-4271-9bc7-ad81a72163c5
+		summarizeBy: count
+		sourceColumn: CampusId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CampusName
+		dataType: string
+		lineageTag: 97717895-f763-46be-86bc-c4e29f6c322d
+		summarizeBy: none
+		sourceColumn: CampusName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CampusShortCode
+		dataType: string
+		lineageTag: 756cb50b-b997-4624-8b1f-38201f704871
+		summarizeBy: none
+		sourceColumn: CampusShortCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimaryFamilyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f2eac10-ea87-46ef-a1b6-922434ecad02
+		summarizeBy: count
+		sourceColumn: PrimaryFamilyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddressStreet1
+		dataType: string
+		lineageTag: 8ea3820f-d812-4eb2-be1d-0485733d1210
+		summarizeBy: none
+		sourceColumn: MailingAddressStreet1
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddressStreet2
+		dataType: string
+		lineageTag: 80843d4d-ee67-4c3a-94f3-078f55200243
+		summarizeBy: none
+		sourceColumn: MailingAddressStreet2
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddressCity
+		dataType: string
+		lineageTag: b6be85d5-db79-47da-9608-80ac2196b36d
+		summarizeBy: none
+		sourceColumn: MailingAddressCity
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddressCounty
+		dataType: string
+		lineageTag: e2218663-4298-4448-a159-f03ff72ab51d
+		summarizeBy: none
+		sourceColumn: MailingAddressCounty
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddressState
+		dataType: string
+		lineageTag: 92d51a20-387e-4f08-a402-f151ad87b656
+		summarizeBy: none
+		sourceColumn: MailingAddressState
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddressCountry
+		dataType: string
+		lineageTag: e9ec5884-ccdb-4edb-8cc0-f8af18864c5b
+		summarizeBy: none
+		sourceColumn: MailingAddressCountry
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddressPostalCode
+		dataType: string
+		lineageTag: 2146adf9-f48a-4359-89f7-5fdec7fad59d
+		summarizeBy: none
+		sourceColumn: MailingAddressPostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column MailingAddressLatitude
+		dataType: double
+		lineageTag: 5b763cca-8952-4ac2-907a-138731fe5295
+		summarizeBy: sum
+		sourceColumn: MailingAddressLatitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MailingAddressLongitude
+		dataType: double
+		lineageTag: 33297a33-d514-4a24-a671-db8fd98ced83
+		summarizeBy: sum
+		sourceColumn: MailingAddressLongitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MailingAddressFull
+		dataType: string
+		lineageTag: f5c62a5d-418c-421f-b379-006a8169b2b6
+		summarizeBy: none
+		sourceColumn: MailingAddressFull
+
+		annotation SummarizationSetBy = Automatic
+
+	column MappedAddressStreet1
+		dataType: string
+		lineageTag: 459e88cd-62c9-439d-991a-501ad1202eaa
+		summarizeBy: none
+		sourceColumn: MappedAddressStreet1
+
+		annotation SummarizationSetBy = Automatic
+
+	column MappedAddressStreet2
+		dataType: string
+		lineageTag: 8ba6c1cd-305e-49a1-898b-1e93f11c9d7d
+		summarizeBy: none
+		sourceColumn: MappedAddressStreet2
+
+		annotation SummarizationSetBy = Automatic
+
+	column MappedAddressCity
+		dataType: string
+		lineageTag: b0852cc9-3f82-4914-ba86-d96834b91a09
+		summarizeBy: none
+		sourceColumn: MappedAddressCity
+
+		annotation SummarizationSetBy = Automatic
+
+	column MappedAddressCounty
+		dataType: string
+		lineageTag: 0aa11244-f847-4116-8baa-16549732a522
+		summarizeBy: none
+		sourceColumn: MappedAddressCounty
+
+		annotation SummarizationSetBy = Automatic
+
+	column MappedAddressState
+		dataType: string
+		lineageTag: dc5fde3a-796e-4011-b8f0-9d78aee0a81e
+		summarizeBy: none
+		sourceColumn: MappedAddressState
+
+		annotation SummarizationSetBy = Automatic
+
+	column MappedAddressCountry
+		dataType: string
+		lineageTag: 3051356d-e2ef-4302-915a-5153a440f447
+		summarizeBy: none
+		sourceColumn: MappedAddressCountry
+
+		annotation SummarizationSetBy = Automatic
+
+	column MappedAddressPostalCode
+		dataType: string
+		lineageTag: eecb6747-2298-493e-ac37-be44ae41bb27
+		summarizeBy: none
+		sourceColumn: MappedAddressPostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column MappedAddressLatitude
+		dataType: double
+		lineageTag: 1c969854-c254-4e9a-ac02-4ba81f28a8d5
+		summarizeBy: sum
+		sourceColumn: MappedAddressLatitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MappedAddressLongitude
+		dataType: double
+		lineageTag: 5a442cf6-739a-45a3-b42a-78590246025d
+		summarizeBy: sum
+		sourceColumn: MappedAddressLongitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MappedAddressFull
+		dataType: string
+		lineageTag: 6a18b4d7-73e4-44dd-bfb6-38545a7f39a2
+		summarizeBy: none
+		sourceColumn: MappedAddressFull
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 011793d2-5cff-4605-8977-a5311f4b4502
+		summarizeBy: none
+		sourceColumn: ModifiedDateTime
+
+		variation Variation
+			isDefault
+			relationship: e2c10b93-7f41-4ee8-8e41-a32c71508e18
+			defaultHierarchy: LocalDateTable_9d089402-40f0-4301-a74f-e231f3acda26.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_person = m
+		mode: import
+		source =
+				let
+				    Source = PowerBI.Dataflows(null),
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Source{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"]}[Data],
+				    dim_person1 = #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"{[entity="dim_person"]}[Data]
+				in
+				    dim_person1
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

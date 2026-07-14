@@ -1,0 +1,303 @@
+relationship 45ca9d85-e000-4f07-9c3d-a4a60361eaff
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_checkin.AOCreatedDateTime
+	toColumn: LocalDateTable_6c259c09-0b3a-4e3a-9098-c2ccbe63f786.Date
+
+relationship 784c773d-ade7-4202-8568-4bff4565c26c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_checkin.AOOccurrenceDate
+	toColumn: LocalDateTable_fced5ba1-1319-4d40-8b62-7486502b8195.Date
+
+relationship 4c441da5-17b0-4a67-b70b-4f68fbe3ee03
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_checkin.AOModifiedDateTime
+	toColumn: LocalDateTable_33a14ed8-e871-4098-912d-3cf155852d56.Date
+
+relationship 6032275b-418c-4625-a0bf-501b72730d7c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_checkin.AOSundayDate
+	toColumn: LocalDateTable_f20f2381-78b7-491c-808c-e8702da5d2ce.Date
+
+relationship c6089658-1c39-457b-bef8-466e687df6d6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_checkin.AStartDateTime
+	toColumn: LocalDateTable_43e8e3c6-998b-4344-b9eb-8a6956967f3f.Date
+
+relationship 8d08e9c5-5a52-4599-9603-c1f33fe98566
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_checkin.AEndDateTime
+	toColumn: LocalDateTable_e177401c-0086-494c-85c8-a0ad93ee8e58.Date
+
+relationship 1baad795-8bba-4c02-b796-a02d121adf04
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_checkin.ARSVPDateTime
+	toColumn: LocalDateTable_c9172b58-653f-4db7-9ede-3c4240387b60.Date
+
+relationship 115af1f6-9ee7-4521-b85d-b0ba893737e3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_connectionrequest.COCreatedDateTime
+	toColumn: LocalDateTable_4dbe806a-40c0-4126-aab1-223243dd7af2.Date
+
+relationship 8da2c228-b999-4681-95aa-a2b0c65c666e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_connectionrequest.COModifiedDateTime
+	toColumn: LocalDateTable_0900751d-ab98-4940-a2e8-ea60a7a17d0c.Date
+
+relationship 224035a1-155f-4c48-856e-ffe85f758692
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_connectionrequest.CRCreatedDateTime
+	toColumn: LocalDateTable_2511803c-d60a-41cd-8573-f74aa5842d76.Date
+
+relationship 16cb3b11-3c33-493d-8730-59266e3aaa0a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_connectionrequest.CRModifiedDateTime
+	toColumn: LocalDateTable_08aa4b4c-88f7-403c-a432-e7fbabc5c61a.Date
+
+relationship 77238677-f1a0-4353-b877-0c5f6fb99f08
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_workflow.WActivatedDateTime
+	toColumn: LocalDateTable_f3eaebe0-698b-40c3-8cb4-793b91fb7dc3.Date
+
+relationship 6df428ec-b80f-435a-8f6f-99a3c8588ae1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_workflow.WCompletedDateTime
+	toColumn: LocalDateTable_24d54e3a-efb5-4048-865f-aa9c0ee0823f.Date
+
+relationship b2754b68-0f49-441e-a8f1-292addc07bb4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_attributevalue_JIL.CreatedDateTime
+	toColumn: LocalDateTable_87592105-710d-472e-b8c6-c6b64cc65aec.Date
+
+relationship 1a897624-ef22-4269-8b6c-a8a6e4ddb511
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_attributevalue_JIL.ModifiedDateTime
+	toColumn: LocalDateTable_9c0c6ec2-3363-4519-b368-bf064f00a625.Date
+
+relationship 47700ba3-6069-417a-8320-830462a792a9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_attributevalue_JIL.ValueAsDateTime
+	toColumn: LocalDateTable_587279c2-8206-41aa-97fe-124b21a4ecf3.Date
+
+relationship d7d65814-3430-48c0-a4ad-3c7f5ca1ad6f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_groupmember.CreatedDateTime
+	toColumn: LocalDateTable_4b1983be-f8ec-4ee1-9cba-9fc23d5f6ad0.Date
+
+relationship bd67c418-c2d3-4b27-9bd7-b1d473076ff4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_groupmember.ModifiedDateTime
+	toColumn: LocalDateTable_f8b0bcad-f387-489d-9fd6-ba6d7e344f4d.Date
+
+relationship 1a4d22c4-6bbe-41d9-9171-b4060cd82b06
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_groupmember.DateTimeAdded
+	toColumn: LocalDateTable_1722ca72-5f4f-4d03-ae79-5d49c1abd3c8.Date
+
+relationship 26b4d4ad-eba8-4dd2-b173-ce5e5f5089fb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_groupmember.InactiveDateTime
+	toColumn: LocalDateTable_2f1d3ad2-bd00-479c-94f5-5628e2f9fd86.Date
+
+relationship 84f3b3e3-0e1e-42bd-aa86-596c58398e3c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_groupmember.ArchivedDateTime
+	toColumn: LocalDateTable_e79fa45d-2506-45cb-b49a-b19e95e2b19d.Date
+
+relationship b1234dc3-8dac-4cae-8a76-d93aaae7ddd5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_groupmember.ScheduleStartDate
+	toColumn: LocalDateTable_a741e68d-0a0a-4b35-8796-d140d15ab34b.Date
+
+relationship db9cea6a-cbc1-43d8-9fb9-14894bc0884e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_group.CreatedDateTime
+	toColumn: LocalDateTable_57f88bf0-e31d-4bf9-9304-db94ba5d2656.Date
+
+relationship 94aaeb27-6fc5-4bbb-9c5f-31d2a954f368
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_group.ModifiedDateTime
+	toColumn: LocalDateTable_6fac8943-4fc7-42b0-9bca-dd5b63710467.Date
+
+relationship 1c17daea-abf7-42da-b2ce-cf5438c49a8c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_group.InactiveDateTime
+	toColumn: LocalDateTable_1131afd0-02ad-434e-8214-67d47c7bd576.Date
+
+relationship 29db91fe-6f8c-492c-9ba6-bd20c36d53d1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_group.ArchivedDateTime
+	toColumn: LocalDateTable_4c25185d-67e2-4dda-818d-cfc54951be83.Date
+
+relationship dbf9e323-6410-4d7c-89f6-d78c4620a927
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_person.EffectiveDate
+	toColumn: LocalDateTable_7a1628d4-8e7d-4d2e-bf9f-319b8a77a225.Date
+
+relationship 5fae265a-2276-4617-a6dc-0af489f9edfb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_person.ExpireDate
+	toColumn: LocalDateTable_914db71c-adfd-43e0-bce8-407a718d2985.Date
+
+relationship 4dba274d-2309-4748-84cc-ad3b4cf5cbd5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_person.RecordStatusLastModifiedDateTime
+	toColumn: LocalDateTable_4eb43979-9d50-473a-8d3d-a83f335ad339.Date
+
+relationship f28c3695-82cc-434a-998b-f519e579c813
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_person.AnniversaryDate
+	toColumn: LocalDateTable_47a6a2a2-1b95-4b7e-8fa9-86eee3b47e0f.Date
+
+relationship bd8dd00f-d3f2-44d7-b6fd-3bdcd6c49218
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_person.core_EraStartDate
+	toColumn: LocalDateTable_e280dd46-e2ff-4c82-8a94-73176b64ac5d.Date
+
+relationship 18d4f96b-9a9b-4445-b92d-80229014d235
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_person.core_EraFirstGave
+	toColumn: LocalDateTable_606cca5e-28a1-4267-b1f6-cf769bc4bf5b.Date
+
+relationship ee4f89bc-4420-48eb-9e67-740667fe1398
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_person.core_EraLastGave
+	toColumn: LocalDateTable_7d7ab734-422a-4cc8-b714-c3a4d8b09c78.Date
+
+relationship 45301dab-b67a-44e9-8b96-d1e3775c20e0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_person.LastClassificationRunDateTime
+	toColumn: LocalDateTable_3393ea33-f1a4-4455-9e21-e6a3c2d6eac2.Date
+
+relationship f1043395-d1d2-4f4e-8b9b-f3b04d5cc3ca
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_person.NextExpectedGiftDate
+	toColumn: LocalDateTable_f440564d-2597-47b3-9273-6cb2b637404c.Date
+
+relationship bfaf33f4-3d6f-4cde-a69d-535e61300589
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_person.JourneyGivingStageChangeDate
+	toColumn: LocalDateTable_d482c40f-830a-4274-9642-0f3d1104e1f4.Date
+
+relationship e2c10b93-7f41-4ee8-8e41-a32c71508e18
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_person.ModifiedDateTime
+	toColumn: LocalDateTable_9d089402-40f0-4301-a74f-e231f3acda26.Date
+
+relationship 91634543-26f2-440f-bfc3-eeb55cd7b627
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_attendance.StartDateTime
+	toColumn: LocalDateTable_3b37a3a4-bed9-46a5-9a09-88e74cf3fa5d.Date
+
+relationship b14f4e2a-667e-4d38-aa14-242abaca97a7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_attendance.EndDateTime
+	toColumn: LocalDateTable_401094d0-3b59-4fd3-85cb-8170727c9bd7.Date
+
+relationship 3cd7f295-b069-4e3f-8b0e-24c6cae7808f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_attendance.SundayDate
+	toColumn: LocalDateTable_2a0c48db-14f1-4ca2-904e-0af5169a0159.Date
+
+relationship AutoDetected_dbc2a9ce-f12c-49ee-af60-a23a582c1dc2
+	fromColumn: fact_connectionrequest.PersonId
+	toColumn: dim_person.PersonId
+
+relationship AutoDetected_8ad05840-42ad-4e57-9e41-ea246abee3ff
+	fromColumn: dim_groupmember.PersonId
+	toColumn: dim_person.PersonId
+
+relationship AutoDetected_390156a5-a151-4496-9f80-25b2b4923054
+	fromColumn: fact_attendance.CampusId
+	toColumn: dim_campus.CampusId
+
+relationship AutoDetected_adc165c3-a6af-48ee-8509-1418d7c76cd8
+	isActive: false
+	fromColumn: fact_attendance.GroupId
+	toColumn: dim_group.groupid
+
+relationship 5a386d18-7d83-59e3-a5b6-d0ab71fa7969
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: fact_workflow.WId
+	toColumn: dim_attributevalue_JIL.EntityId
+
+relationship 4f1ff786-f69c-634e-8c5e-04a54bc870c5
+	fromColumn: dim_groupmember.GroupId
+	toColumn: dim_group.groupid
+
+relationship 1392f2b3-d787-3957-6c04-1f6eff75b4ca
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: dim_group.campusid
+	toColumn: dim_groupmember.GCampusId
+
+relationship 31c76bec-2528-4bf2-bfa9-36c141eac244
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_group.SocialStartDate
+	toColumn: LocalDateTable_23fcdc83-7553-4a01-922d-68f6cdb06453.Date
+
+relationship 8d2679a9-8258-4839-a8d7-49c0e8f47619
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_step.SSCreatedDateTime
+	toColumn: LocalDateTable_9317cc9b-9e6d-4786-9798-9280ec23ee02.Date
+
+relationship 5892ca8b-97a4-411b-a853-b6901b20c719
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_step.SSModifiedDateTime
+	toColumn: LocalDateTable_f74cd71d-e1d4-4482-9883-3184c6d9e005.Date
+
+relationship 829fad4f-0d12-4f62-9021-175e2dd8a88c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_step.STCreatedDateTime
+	toColumn: LocalDateTable_f3c12d13-3b10-4999-8c90-39662d985db5.Date
+
+relationship 462562de-8a9e-4bcf-8753-a3bb403ec429
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_step.STModifiedDateTime
+	toColumn: LocalDateTable_dbf1e58a-711e-43ee-bcd8-88b62a73411c.Date
+
+relationship 00c03e5b-3d35-47c0-8617-438e3b994012
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_step.SCompletedDateTime
+	toColumn: LocalDateTable_8439f80d-fda7-495d-a887-555e31f06379.Date
+
+relationship 7f1f1e5f-e91c-48de-b562-8c09100e0699
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_step.SStartDateTime
+	toColumn: LocalDateTable_64631c8f-8eb1-40ff-9c9a-1bec76c375f3.Date
+
+relationship 35a8a35b-c0d3-4948-9446-c0276e00f79d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_step.SEndDateTime
+	toColumn: LocalDateTable_d8ab5542-0ebf-4751-a2bb-7abc84d93e08.Date
+
+relationship 4dd1472d-016e-4722-9ef4-1d9b9ae4245e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_step.SCreatedDateTime
+	toColumn: LocalDateTable_19e52d2e-1304-47eb-b9eb-cdebd8db5936.Date
+
+relationship 759183ee-d848-471d-93bb-2070d549cbf2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_step.SModifiedDateTime
+	toColumn: LocalDateTable_a210c7c7-a1cc-4666-94d0-3b6f49869907.Date
+
+relationship AutoDetected_d27232cc-48cc-442a-9bff-b4cd89f50bae
+	fromColumn: fact_step.PersonId
+	toColumn: dim_person.PersonId
+
+relationship 7c34ee19-dd54-3145-d362-dc2ad4edc4ba
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: DH_SundaySummary.ACampusId
+	toColumn: dim_group.campusid
+
+relationship 5a4c851a-d486-4916-834b-7816cc36255f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DH_SundaySummary.AOOccurrenceDate
+	toColumn: LocalDateTable_1a1dd851-272d-457f-bf61-249de5739120.Date
+
+relationship 8f6fdb66-0307-193e-5ba2-e0d8773d75d2
+	crossFilteringBehavior: bothDirections
+	fromColumn: fact_checkin.GId
+	toColumn: dim_group.groupid
+

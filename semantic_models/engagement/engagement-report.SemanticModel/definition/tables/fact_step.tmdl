@@ -1,0 +1,231 @@
+table fact_step
+	lineageTag: e69699ab-f73d-4b34-8028-ee8742c9b2f6
+
+	column PersonId
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d4c7397-11f3-41df-842f-b618a04cdab8
+		summarizeBy: none
+		sourceColumn: PersonId
+
+		annotation SummarizationSetBy = Automatic
+
+	column SSId
+		dataType: int64
+		formatString: 0
+		lineageTag: b2dd3ba3-0ab1-4e30-aa51-fe6134e6943c
+		summarizeBy: count
+		sourceColumn: SSId
+
+		annotation SummarizationSetBy = Automatic
+
+	column SSName
+		dataType: string
+		lineageTag: 7cea2070-64eb-4865-9f01-da8ce003c8ff
+		summarizeBy: none
+		sourceColumn: SSName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SSCreatedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a63275e7-c95c-4f60-8820-c3052603a4e0
+		summarizeBy: none
+		sourceColumn: SSCreatedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 8d2679a9-8258-4839-a8d7-49c0e8f47619
+			defaultHierarchy: LocalDateTable_9317cc9b-9e6d-4786-9798-9280ec23ee02.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column SSModifiedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d2ac26e0-48a6-413b-a390-77fd537baaa6
+		summarizeBy: none
+		sourceColumn: SSModifiedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 5892ca8b-97a4-411b-a853-b6901b20c719
+			defaultHierarchy: LocalDateTable_f74cd71d-e1d4-4482-9883-3184c6d9e005.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column SPId
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f2878dd-cd41-48b0-9a65-c4b5658ed23c
+		summarizeBy: count
+		sourceColumn: SPId
+
+		annotation SummarizationSetBy = Automatic
+
+	column SPName
+		dataType: string
+		lineageTag: 41378d54-8dd9-4f5b-80d8-e501ac5cd0fe
+		summarizeBy: none
+		sourceColumn: SPName
+
+		annotation SummarizationSetBy = Automatic
+
+	column STId
+		dataType: int64
+		formatString: 0
+		lineageTag: 99460436-dd47-47a9-a0e7-e0b9cacb1f82
+		summarizeBy: count
+		sourceColumn: STId
+
+		annotation SummarizationSetBy = Automatic
+
+	column STName
+		dataType: string
+		lineageTag: d0950cc1-8fe3-45b4-913f-26c29b82caad
+		summarizeBy: none
+		sourceColumn: STName
+
+		annotation SummarizationSetBy = Automatic
+
+	column STCreatedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bc8ae036-4e16-43eb-aa40-aa32c8e002d4
+		summarizeBy: none
+		sourceColumn: STCreatedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 829fad4f-0d12-4f62-9021-175e2dd8a88c
+			defaultHierarchy: LocalDateTable_f3c12d13-3b10-4999-8c90-39662d985db5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column STModifiedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3a5ca792-cf0b-449f-8f22-1af5378a5c31
+		summarizeBy: none
+		sourceColumn: STModifiedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 462562de-8a9e-4bcf-8753-a3bb403ec429
+			defaultHierarchy: LocalDateTable_dbf1e58a-711e-43ee-bcd8-88b62a73411c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column SId
+		dataType: int64
+		formatString: 0
+		lineageTag: db71dd90-6d0b-4010-8d8c-2d651b7d4c33
+		summarizeBy: count
+		sourceColumn: SId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class
+		dataType: string
+		lineageTag: ebb28c02-62f4-4fd1-a701-d56b8c482608
+		summarizeBy: none
+		sourceColumn: Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCampusId
+		dataType: int64
+		formatString: 0
+		lineageTag: df7bcc09-991e-4dd9-b9c6-f6c6495ef9a4
+		summarizeBy: count
+		sourceColumn: SCampusId
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCompletedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 59f76524-bb29-46be-b329-85d5172a263b
+		summarizeBy: none
+		sourceColumn: SCompletedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 00c03e5b-3d35-47c0-8617-438e3b994012
+			defaultHierarchy: LocalDateTable_8439f80d-fda7-495d-a887-555e31f06379.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column SStartDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 75615b3d-5628-410d-83f5-06a4bb72cdbe
+		summarizeBy: none
+		sourceColumn: SStartDateTime
+
+		variation Variation
+			isDefault
+			relationship: 7f1f1e5f-e91c-48de-b562-8c09100e0699
+			defaultHierarchy: LocalDateTable_64631c8f-8eb1-40ff-9c9a-1bec76c375f3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEndDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 388358f5-2eab-4de7-9cd0-a07b4fb4404a
+		summarizeBy: none
+		sourceColumn: SEndDateTime
+
+		variation Variation
+			isDefault
+			relationship: 35a8a35b-c0d3-4948-9446-c0276e00f79d
+			defaultHierarchy: LocalDateTable_d8ab5542-0ebf-4751-a2bb-7abc84d93e08.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCreatedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1422512f-4d04-49d2-95a6-77d1e48aec61
+		summarizeBy: none
+		sourceColumn: SCreatedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 4dd1472d-016e-4722-9ef4-1d9b9ae4245e
+			defaultHierarchy: LocalDateTable_19e52d2e-1304-47eb-b9eb-cdebd8db5936.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column SModifiedDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 727f2574-fe7b-4059-9dcb-2eb3b316b99c
+		summarizeBy: none
+		sourceColumn: SModifiedDateTime
+
+		variation Variation
+			isDefault
+			relationship: 759183ee-d848-471d-93bb-2070d549cbf2
+			defaultHierarchy: LocalDateTable_a210c7c7-a1cc-4666-94d0-3b6f49869907.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_step = m
+		mode: import
+		source =
+				let
+				    Source = PowerBI.Dataflows(null),
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Source{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"]}[Data],
+				    fact_step1 = #"7298f3cf-5097-4cfa-80d0-5ba1abcf87d2"{[entity="fact_step"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(fact_step1, each ([STId] = 69))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

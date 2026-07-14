@@ -1,0 +1,36 @@
+table ComparisonData
+	lineageTag: c2eec9b7-b75f-4bc9-bce7-960988ff94e1
+
+	column Class
+		lineageTag: 31d6e066-3854-4e25-bf30-d04ec854f2d4
+		isNameInferred
+		sourceColumn: [Class]
+
+	column TimePeriod
+		lineageTag: 9a689f3a-823f-4c9c-8da2-83cf36e7a80f
+		isNameInferred
+		sourceColumn: [TimePeriod]
+		sortByColumn: SortOrder
+
+	column SortOrder
+		lineageTag: 57afcf3f-6214-4365-bf1e-dab0d7fac7c4
+		isNameInferred
+		sourceColumn: [SortOrder]
+
+	column Value
+		lineageTag: 9e5fbe88-388a-4f9c-9274-43ea292f6183
+		isNameInferred
+		sourceColumn: [Value]
+
+	partition ComparisonData = calculated
+		mode: import
+		source =
+				UNION(
+				  ROW("Class", "Welcome To Church", "TimePeriod", "Past 365 Days", "SortOrder", 1, "Value", [G130_P365CheckIns]),
+				  ROW("Class", "Welcome To Church", "TimePeriod", "Year To Date", "SortOrder", 2, "Value", [G130_YTDCheckIns]),
+				  ROW("Class", "Welcome To Church", "TimePeriod", "Past 90 Days", "SortOrder", 3, "Value", [G130_P90CheckIns]),
+				  ROW("Class", "Jesus Is Life Bulb", "TimePeriod", "Past 365 Days", "SortOrder", 1, "Value", [G_JIL_P365Yeses]),
+				  ROW("Class", "Jesus Is Life Bulb", "TimePeriod", "Year To Date", "SortOrder", 2, "Value", [G_JIL_YTDYeses]),
+				  ROW("Class", "Jesus Is Life Bulb", "TimePeriod", "Past 90 Days", "SortOrder", 3, "Value", [G_JIL_P90Yeses])
+				)
+
