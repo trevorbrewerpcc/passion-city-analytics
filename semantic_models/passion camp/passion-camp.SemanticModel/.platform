@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "passion-camp"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9f7d6528-cec8-49a5-96eb-57e6db26c427"
+  }
+}

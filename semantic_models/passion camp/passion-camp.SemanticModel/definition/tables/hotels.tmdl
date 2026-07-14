@@ -1,0 +1,116 @@
+table hotels
+	lineageTag: bec1506c-bfe4-458c-8bf1-b6e2500451b0
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b8f5599-8df0-4d5f-8d69-69f40554fe96
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 5fc536da-14ad-423e-bf34-f401f8ac5fb4
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column url
+		dataType: string
+		lineageTag: bd3a5a3c-4353-4f53-8864-b2724bf52320
+		summarizeBy: none
+		sourceColumn: url
+
+		annotation SummarizationSetBy = Automatic
+
+	column location
+		dataType: string
+		lineageTag: 9b5b47d2-214a-4220-a81a-09bb5ee7add9
+		summarizeBy: none
+		sourceColumn: location
+
+		annotation SummarizationSetBy = Automatic
+
+	column address
+		dataType: string
+		lineageTag: 9298740a-8db5-4b62-871d-38e9210903f6
+		summarizeBy: none
+		sourceColumn: address
+
+		annotation SummarizationSetBy = Automatic
+
+	column website
+		dataType: string
+		lineageTag: d56e379e-b434-4410-8dbf-58f3280e5caa
+		summarizeBy: none
+		sourceColumn: website
+
+		annotation SummarizationSetBy = Automatic
+
+	column contact_email
+		dataType: string
+		lineageTag: 90019aef-42e3-4acf-ac94-5e6d6bab6197
+		summarizeBy: none
+		sourceColumn: contact_email
+
+		annotation SummarizationSetBy = Automatic
+
+	column deleted_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 137cfbb7-609c-40c9-9425-26a47fdcc04f
+		summarizeBy: none
+		sourceColumn: deleted_at
+
+		variation Variation
+			isDefault
+			relationship: afa02490-9769-4098-8d41-06aaf92a7b1c
+			defaultHierarchy: LocalDateTable_f755a0a4-c3b6-451f-aa59-f9baf69d247f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 88e56887-2a44-4630-a6ec-bd2dcf7b42ec
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: d82ea82c-f14f-414d-9dcf-0e109ca77e37
+			defaultHierarchy: LocalDateTable_b6155e3b-b8b9-431c-b8ff-7b489f3f4d53.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f0095046-93e6-4431-ab15-99af8fbd351b
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 1aedfe08-2ede-4b5b-ac0d-b8d167b4acd6
+			defaultHierarchy: LocalDateTable_ab8af432-8190-45e2-acbb-bde1e4f0db98.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hotels = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"8623c9fd-3a04-4e30-a15c-e94a9053af9f" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="8623c9fd-3a04-4e30-a15c-e94a9053af9f"]}[Data],
+				    #"passioncamp_production hotels_" = #"8623c9fd-3a04-4e30-a15c-e94a9053af9f"{[entity="passioncamp_production hotels",version=""]}[Data]
+				in
+				    #"passioncamp_production hotels_"
+
+	annotation PBI_ResultType = Table
+

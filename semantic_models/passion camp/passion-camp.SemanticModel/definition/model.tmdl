@@ -1,0 +1,74 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["events","groups","hotels","misc_items","packages","event_groups","event_hotels","event_misc_items","event_packages","orders","users","settings","RefreshMetadata"]
+
+annotation PBI_ProTooling = ["MCP-PBIModeling","DevMode"]
+
+ref table events
+ref table DateTableTemplate_24100905-a4ff-427f-a5f0-baade66eeee5
+ref table LocalDateTable_0be6bf67-dee9-499f-85ed-5ddd6ce75b0e
+ref table LocalDateTable_dc69d859-a1dc-4fe0-9222-79f8db37e85f
+ref table groups
+ref table LocalDateTable_87695a78-3128-4df8-9ca2-a07275778454
+ref table LocalDateTable_4e43da05-914b-4655-aefa-3de573274d84
+ref table LocalDateTable_89213803-9398-4daf-89f1-304ee65e393b
+ref table hotels
+ref table LocalDateTable_f755a0a4-c3b6-451f-aa59-f9baf69d247f
+ref table LocalDateTable_b6155e3b-b8b9-431c-b8ff-7b489f3f4d53
+ref table LocalDateTable_ab8af432-8190-45e2-acbb-bde1e4f0db98
+ref table misc_items
+ref table LocalDateTable_10c24e5b-6af4-4d5e-b1b4-878e0e969832
+ref table LocalDateTable_1fd06c08-f35b-4cce-82e9-7791f741fd6b
+ref table LocalDateTable_7064105d-092e-4775-8045-bc8e484e19a9
+ref table packages
+ref table LocalDateTable_9bb6861f-e1c0-4b85-8c92-e774cfd2004e
+ref table LocalDateTable_344e10bc-7092-45e3-bbc9-fc4e70483ebd
+ref table LocalDateTable_f6b15cfc-ee0c-41a1-a32b-08923d3fa9e8
+ref table event_groups
+ref table LocalDateTable_50684a49-6c50-4394-bfca-0be9ba4d4952
+ref table LocalDateTable_7ac25c16-6539-4308-983b-7f0df078909a
+ref table LocalDateTable_6a82830a-58cb-4d78-b947-14ff5249decc
+ref table LocalDateTable_71e72c2f-280d-46bb-9d59-0fa608fa0e71
+ref table LocalDateTable_93321cfa-4128-4145-8b0d-28d19868a3e3
+ref table event_hotels
+ref table LocalDateTable_9595bf6a-cecd-4e91-a31e-fbfa9daa9ff8
+ref table LocalDateTable_9fd8e6eb-5e49-4194-8c6e-bb879f053891
+ref table LocalDateTable_3995661d-baf8-4ca1-b89a-b94271c6b26f
+ref table event_misc_items
+ref table LocalDateTable_a7e8214c-e2ac-4c68-9719-fb807aeb97a1
+ref table LocalDateTable_1bb08a5f-9279-421c-abdc-e466af64cdba
+ref table LocalDateTable_fe639e0e-3afb-44d6-963d-e7f214bedad4
+ref table event_packages
+ref table LocalDateTable_60c1beed-a226-45d8-82ac-b88f89143ce3
+ref table LocalDateTable_08d4234c-28bf-4cfa-b5b6-8be380e91ff7
+ref table LocalDateTable_d7647fa7-6e9f-4691-8a06-b017ee6030c0
+ref table orders
+ref table LocalDateTable_780d4a3b-e81c-4f5c-ad48-247d738f7d2a
+ref table LocalDateTable_cb577624-fe69-47b6-b005-3a503bc74e91
+ref table LocalDateTable_a1d43d69-6eb8-446d-9d69-99c5fa304179
+ref table users
+ref table LocalDateTable_4d69663b-8323-4469-9caa-a21bcf58dcd2
+ref table LocalDateTable_aa9df718-ea12-4618-8876-141b0ebd6e1d
+ref table LocalDateTable_45233bcd-4f52-4e84-8599-24d3f404f6d1
+ref table LocalDateTable_c62384e2-96ec-4a3b-aaa8-03051af7a45b
+ref table LocalDateTable_a5eb9a31-13e2-4abf-b472-fd3a7621af25
+ref table settings
+ref table LocalDateTable_63eddc19-8606-46b8-870f-389ad2bf3433
+ref table LocalDateTable_91ec9581-06b7-4ae1-b11f-ff9b32fb1244
+ref table LocalDateTable_8ba965d0-f5cd-441d-a351-c6e2878f8810
+ref table EventGroupHotel
+ref table EventGroupHotel2
+ref table RefreshMetadata
+ref table LocalDateTable_b84982da-fd31-460f-91dc-b795a588b92d
+ref table LocalDateTable_2cf0ffce-2d28-43cc-b4aa-737a897e8e9d
+
+ref cultureInfo en-US
+

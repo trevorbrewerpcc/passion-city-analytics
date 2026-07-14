@@ -1,0 +1,92 @@
+table packages
+	lineageTag: f91915fb-b5e3-49d0-a399-8d6e28f121f5
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 153f8e48-6e2e-454e-a15f-a09a7735fa46
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column key
+		dataType: string
+		lineageTag: 3caec0b0-87e3-4113-a02f-42b01dd0cd61
+		summarizeBy: none
+		sourceColumn: key
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 500af34e-8d09-44fa-b257-742cb3274bf9
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 97cc120e-f584-4d09-b623-5871d1f9c9ab
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column deleted_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 64ae79e1-d74f-491c-817f-719f49119438
+		summarizeBy: none
+		sourceColumn: deleted_at
+
+		variation Variation
+			isDefault
+			relationship: 7e128b4d-40d6-4c2a-a5d5-6ee93e198cb9
+			defaultHierarchy: LocalDateTable_9bb6861f-e1c0-4b85-8c92-e774cfd2004e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6eef725a-fd06-4be6-ae2e-eb976407d02c
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 217f8869-afeb-4b13-9922-e8890603388f
+			defaultHierarchy: LocalDateTable_344e10bc-7092-45e3-bbc9-fc4e70483ebd.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 61187562-3b24-49b1-a7a2-2dd23f2ce68d
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 62d6e060-0ec2-4f89-b27c-25825ef9cc85
+			defaultHierarchy: LocalDateTable_f6b15cfc-ee0c-41a1-a32b-08923d3fa9e8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition packages = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"8623c9fd-3a04-4e30-a15c-e94a9053af9f" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="8623c9fd-3a04-4e30-a15c-e94a9053af9f"]}[Data],
+				    #"passioncamp_production packages_" = #"8623c9fd-3a04-4e30-a15c-e94a9053af9f"{[entity="passioncamp_production packages",version=""]}[Data]
+				in
+				    #"passioncamp_production packages_"
+
+	annotation PBI_ResultType = Table
+

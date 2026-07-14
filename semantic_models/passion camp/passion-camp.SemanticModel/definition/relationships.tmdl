@@ -1,0 +1,252 @@
+relationship 7caad3dd-56cc-4349-b028-29913ec2b42d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: events.created_at
+	toColumn: LocalDateTable_0be6bf67-dee9-499f-85ed-5ddd6ce75b0e.Date
+
+relationship e057f12e-b2c8-4ada-bd79-5330553f4592
+	joinOnDateBehavior: datePartOnly
+	fromColumn: events.updated_at
+	toColumn: LocalDateTable_dc69d859-a1dc-4fe0-9222-79f8db37e85f.Date
+
+relationship 09a067fd-92c2-4d10-992a-98b49c2f4f05
+	joinOnDateBehavior: datePartOnly
+	fromColumn: groups.deleted_at
+	toColumn: LocalDateTable_87695a78-3128-4df8-9ca2-a07275778454.Date
+
+relationship 8cf0e844-44bd-431a-a1c0-1fd11710c472
+	joinOnDateBehavior: datePartOnly
+	fromColumn: groups.created_at
+	toColumn: LocalDateTable_4e43da05-914b-4655-aefa-3de573274d84.Date
+
+relationship cfb8aa08-d3fc-4d20-b032-432cc61a19ff
+	joinOnDateBehavior: datePartOnly
+	fromColumn: groups.updated_at
+	toColumn: LocalDateTable_89213803-9398-4daf-89f1-304ee65e393b.Date
+
+relationship afa02490-9769-4098-8d41-06aaf92a7b1c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: hotels.deleted_at
+	toColumn: LocalDateTable_f755a0a4-c3b6-451f-aa59-f9baf69d247f.Date
+
+relationship d82ea82c-f14f-414d-9dcf-0e109ca77e37
+	joinOnDateBehavior: datePartOnly
+	fromColumn: hotels.created_at
+	toColumn: LocalDateTable_b6155e3b-b8b9-431c-b8ff-7b489f3f4d53.Date
+
+relationship 1aedfe08-2ede-4b5b-ac0d-b8d167b4acd6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: hotels.updated_at
+	toColumn: LocalDateTable_ab8af432-8190-45e2-acbb-bde1e4f0db98.Date
+
+relationship 8591c675-24de-4d23-8d92-aae7c3d9a7dd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: misc_items.deleted_at
+	toColumn: LocalDateTable_10c24e5b-6af4-4d5e-b1b4-878e0e969832.Date
+
+relationship a2d1ab69-fc2c-4770-b7ac-034cbc49bf25
+	joinOnDateBehavior: datePartOnly
+	fromColumn: misc_items.created_at
+	toColumn: LocalDateTable_1fd06c08-f35b-4cce-82e9-7791f741fd6b.Date
+
+relationship 09ea7b67-b042-4075-b4cf-7ae9a7440012
+	joinOnDateBehavior: datePartOnly
+	fromColumn: misc_items.updated_at
+	toColumn: LocalDateTable_7064105d-092e-4775-8045-bc8e484e19a9.Date
+
+relationship 7e128b4d-40d6-4c2a-a5d5-6ee93e198cb9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: packages.deleted_at
+	toColumn: LocalDateTable_9bb6861f-e1c0-4b85-8c92-e774cfd2004e.Date
+
+relationship 217f8869-afeb-4b13-9922-e8890603388f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: packages.created_at
+	toColumn: LocalDateTable_344e10bc-7092-45e3-bbc9-fc4e70483ebd.Date
+
+relationship 62d6e060-0ec2-4f89-b27c-25825ef9cc85
+	joinOnDateBehavior: datePartOnly
+	fromColumn: packages.updated_at
+	toColumn: LocalDateTable_f6b15cfc-ee0c-41a1-a32b-08923d3fa9e8.Date
+
+relationship 4cb29ed1-dd54-4902-85f7-885b8c036c4d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_groups.checked_in_at
+	toColumn: LocalDateTable_50684a49-6c50-4394-bfca-0be9ba4d4952.Date
+
+relationship dfc090bb-010f-4ab8-ac32-dd6364000330
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_groups.deleted_at
+	toColumn: LocalDateTable_7ac25c16-6539-4308-983b-7f0df078909a.Date
+
+relationship 80863ad2-6892-4070-82ac-7a34b34071d2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_groups.created_at
+	toColumn: LocalDateTable_6a82830a-58cb-4d78-b947-14ff5249decc.Date
+
+relationship 9a71a0b4-72fd-41dc-8a4f-6b58bed0a98b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_groups.updated_at
+	toColumn: LocalDateTable_71e72c2f-280d-46bb-9d59-0fa608fa0e71.Date
+
+relationship be320c45-b197-4aee-94a3-fda557ffd9da
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_groups.rooming_list_date
+	toColumn: LocalDateTable_93321cfa-4128-4145-8b0d-28d19868a3e3.Date
+
+relationship df8d73ca-dc5a-4b20-a31c-cb089eb5c07f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_hotels.deleted_at
+	toColumn: LocalDateTable_9595bf6a-cecd-4e91-a31e-fbfa9daa9ff8.Date
+
+relationship 6c5879d6-14d1-4a6a-bf30-380a50b0d418
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_hotels.created_at
+	toColumn: LocalDateTable_9fd8e6eb-5e49-4194-8c6e-bb879f053891.Date
+
+relationship d4d7c9ea-6588-42d2-901c-7b83af3005b2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_hotels.updated_at
+	toColumn: LocalDateTable_3995661d-baf8-4ca1-b89a-b94271c6b26f.Date
+
+relationship e71b1432-38db-4d95-9702-c880afe154d8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_misc_items.deleted_at
+	toColumn: LocalDateTable_a7e8214c-e2ac-4c68-9719-fb807aeb97a1.Date
+
+relationship b785714a-4980-4b9a-bfd5-4c8a40a970b5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_misc_items.created_at
+	toColumn: LocalDateTable_1bb08a5f-9279-421c-abdc-e466af64cdba.Date
+
+relationship 344cd479-52d5-4b91-8bf8-0b8e3ce99e80
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_misc_items.updated_at
+	toColumn: LocalDateTable_fe639e0e-3afb-44d6-963d-e7f214bedad4.Date
+
+relationship 6112ccff-39dd-4307-b8f8-ccb5b7723284
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_packages.deleted_at
+	toColumn: LocalDateTable_60c1beed-a226-45d8-82ac-b88f89143ce3.Date
+
+relationship ad9d9e43-3fb4-43e7-9ac8-6d0495c1e823
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_packages.created_at
+	toColumn: LocalDateTable_08d4234c-28bf-4cfa-b5b6-8be380e91ff7.Date
+
+relationship 7bbaf41a-937e-417b-bae4-7b96fb6e6b82
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_packages.updated_at
+	toColumn: LocalDateTable_d7647fa7-6e9f-4691-8a06-b017ee6030c0.Date
+
+relationship 2cbc2df1-0aa4-475b-9762-ecd62bee48ce
+	joinOnDateBehavior: datePartOnly
+	fromColumn: orders.deleted_at
+	toColumn: LocalDateTable_780d4a3b-e81c-4f5c-ad48-247d738f7d2a.Date
+
+relationship c314490d-5e3d-4a73-a660-31e56e3651b4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: orders.created_at
+	toColumn: LocalDateTable_cb577624-fe69-47b6-b005-3a503bc74e91.Date
+
+relationship 97921978-7b1d-4da7-88fb-e0b70a5e0dfd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: orders.updated_at
+	toColumn: LocalDateTable_a1d43d69-6eb8-446d-9d69-99c5fa304179.Date
+
+relationship c604a1e3-e939-4db3-929e-198e03be1c36
+	joinOnDateBehavior: datePartOnly
+	fromColumn: users.email_verified_at
+	toColumn: LocalDateTable_4d69663b-8323-4469-9caa-a21bcf58dcd2.Date
+
+relationship f482cfb4-46c3-4676-9fd4-7b24f3e08317
+	joinOnDateBehavior: datePartOnly
+	fromColumn: users.deleted_at
+	toColumn: LocalDateTable_aa9df718-ea12-4618-8876-141b0ebd6e1d.Date
+
+relationship bc01e9cd-04de-4ccf-8b36-e0319a1e6a13
+	joinOnDateBehavior: datePartOnly
+	fromColumn: users.created_at
+	toColumn: LocalDateTable_45233bcd-4f52-4e84-8599-24d3f404f6d1.Date
+
+relationship 476baff4-bdb1-4277-bcd6-3173bac45732
+	joinOnDateBehavior: datePartOnly
+	fromColumn: users.updated_at
+	toColumn: LocalDateTable_c62384e2-96ec-4a3b-aaa8-03051af7a45b.Date
+
+relationship 4c0fe4a6-1201-4dd4-bf5c-1f289c52b673
+	joinOnDateBehavior: datePartOnly
+	fromColumn: users.last_login_at
+	toColumn: LocalDateTable_a5eb9a31-13e2-4abf-b472-fd3a7621af25.Date
+
+relationship 166dd907-c933-2238-9e1c-b74007fd30b0
+	fromColumn: orders.event_group_id
+	toColumn: event_groups.id
+
+relationship 6b573dc3-9661-4c85-146d-d386df4560b0
+	fromColumn: orders.orderable_id
+	toColumn: event_hotels.id
+
+relationship 6380b25f-a52f-7d99-06e3-73f5e853aac0
+	fromColumn: event_hotels.hotel_id
+	toColumn: hotels.id
+
+relationship 46bcf5c1-9ffd-221a-671e-4f8f649cdcb6
+	fromColumn: event_groups.group_id
+	toColumn: groups.id
+
+relationship c6dd8b3b-eabe-68f9-7dcd-bd4319bff4df
+	fromColumn: groups.contact_user_id
+	toColumn: users.id
+
+relationship d0d4db6b-131f-53ba-a5c4-c291a0e9f4eb
+	fromColumn: orders.orderable_id
+	toColumn: event_misc_items.id
+
+relationship f99f436b-2495-7742-4196-49ef973522d8
+	fromColumn: orders.orderable_id
+	toColumn: event_packages.id
+
+relationship 087da3e8-340f-a93e-63e1-de6d490f4241
+	fromColumn: event_packages.package_id
+	toColumn: packages.id
+
+relationship 40b56d9d-e52c-d475-8bfd-4790a8b203fb
+	crossFilteringBehavior: bothDirections
+	fromColumn: event_misc_items.misc_item_id
+	toColumn: misc_items.id
+
+relationship 085aa812-16d3-4e03-9639-27ed408e0499
+	joinOnDateBehavior: datePartOnly
+	fromColumn: settings.deleted_at
+	toColumn: LocalDateTable_63eddc19-8606-46b8-870f-389ad2bf3433.Date
+
+relationship 5c1f38eb-9095-4de4-a7c5-83e8c7f49e51
+	joinOnDateBehavior: datePartOnly
+	fromColumn: settings.created_at
+	toColumn: LocalDateTable_91ec9581-06b7-4ae1-b11f-ff9b32fb1244.Date
+
+relationship 87add5a8-9e75-4f33-8926-da03f42e500a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: settings.updated_at
+	toColumn: LocalDateTable_8ba965d0-f5cd-441d-a351-c6e2878f8810.Date
+
+relationship fa535a77-e409-b560-5d9c-e5cd57921806
+	fromColumn: event_groups.event_id
+	toColumn: events.id
+
+relationship 5cc30171-a76f-51e6-381f-df6ca9f7fced
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: orders.event_group_id
+	toColumn: EventGroupHotel.'Event Group ID'
+
+relationship e508965f-9d03-4d05-8979-03d4eea117d3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: RefreshMetadata.RefreshTime
+	toColumn: LocalDateTable_b84982da-fd31-460f-91dc-b795a588b92d.Date
+
+relationship fff3e91e-b5e6-4b54-9fbc-de4c18e60e80
+	joinOnDateBehavior: datePartOnly
+	fromColumn: event_hotels.cc_auth_uploaded_at
+	toColumn: LocalDateTable_2cf0ffce-2d28-43cc-b4aa-737a897e8e9d.Date
+

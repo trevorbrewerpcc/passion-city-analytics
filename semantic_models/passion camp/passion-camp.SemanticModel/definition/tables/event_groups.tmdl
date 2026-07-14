@@ -1,0 +1,182 @@
+table event_groups
+	lineageTag: d03d22bd-c796-47d8-b75c-fcf93d6ba826
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: ad7114fb-7b8f-499e-adad-54e64a466e31
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ded0520a-ebda-4ee2-89f7-b030043e8386
+		summarizeBy: none
+		sourceColumn: event_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column group_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 80fadacb-8643-4f12-9c11-ecb875220a69
+		summarizeBy: none
+		sourceColumn: group_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column deposit_paid
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: fba009f7-bfc7-4fd3-af36-87a7279b8948
+		summarizeBy: none
+		sourceColumn: deposit_paid
+
+		annotation SummarizationSetBy = Automatic
+
+	column referral_method
+		dataType: string
+		lineageTag: 3146282c-77ea-4b26-9c0d-15f491825c24
+		summarizeBy: none
+		sourceColumn: referral_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: int64
+		formatString: 0
+		lineageTag: 58f4eb96-319e-4d89-a032-c9ab36619b15
+		summarizeBy: sum
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column group_requests
+		dataType: string
+		lineageTag: 10e27209-782c-4a0b-bb11-7acc1079cc91
+		summarizeBy: none
+		sourceColumn: group_requests
+
+		annotation SummarizationSetBy = Automatic
+
+	column checked_in_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0e071b55-cb82-4ca5-94c6-ab599484118c
+		summarizeBy: none
+		sourceColumn: checked_in_at
+
+		variation Variation
+			isDefault
+			relationship: 4cb29ed1-dd54-4902-85f7-885b8c036c4d
+			defaultHierarchy: LocalDateTable_50684a49-6c50-4394-bfca-0be9ba4d4952.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column hubspot_deal_id
+		dataType: string
+		lineageTag: b301b1de-0238-4474-903a-56d5b4457496
+		summarizeBy: none
+		sourceColumn: hubspot_deal_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column deleted_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9d165bbb-e086-4bc0-b52d-5107c38410d0
+		summarizeBy: none
+		sourceColumn: deleted_at
+
+		variation Variation
+			isDefault
+			relationship: dfc090bb-010f-4ab8-ac32-dd6364000330
+			defaultHierarchy: LocalDateTable_7ac25c16-6539-4308-983b-7f0df078909a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 37c57059-1e7b-454e-97b7-b0eecb1c901b
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 80863ad2-6892-4070-82ac-7a34b34071d2
+			defaultHierarchy: LocalDateTable_6a82830a-58cb-4d78-b947-14ff5249decc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d7869ef5-477e-4f2b-8cda-8c49c806c6be
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 9a71a0b4-72fd-41dc-8a4f-6b58bed0a98b
+			defaultHierarchy: LocalDateTable_71e72c2f-280d-46bb-9d59-0fa608fa0e71.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column stripe_customer_id
+		dataType: string
+		lineageTag: 481ff88d-e5f7-4227-b10c-182961777cab
+		summarizeBy: none
+		sourceColumn: stripe_customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column rooming_list_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a8002140-ebee-4185-a0dc-e870d3d632b7
+		summarizeBy: none
+		sourceColumn: rooming_list_date
+
+		variation Variation
+			isDefault
+			relationship: be320c45-b197-4aee-94a3-fda557ffd9da
+			defaultHierarchy: LocalDateTable_93321cfa-4128-4145-8b0d-28d19868a3e3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_squad_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c22a6b9-161c-429e-a246-fd330bffb8e3
+		summarizeBy: sum
+		sourceColumn: event_squad_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_test
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 87364d7e-54b0-4ad0-880b-ec2b626f7566
+		summarizeBy: none
+		sourceColumn: is_test
+
+		annotation SummarizationSetBy = Automatic
+
+	partition event_groups = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"fffc933b-f612-446a-b2c4-bbe73413739c" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="fffc933b-f612-446a-b2c4-bbe73413739c"]}[Data],
+				    #"passioncamp_production event_groups_" = #"fffc933b-f612-446a-b2c4-bbe73413739c"{[entity="passioncamp_production event_groups",version=""]}[Data]
+				in
+				    #"passioncamp_production event_groups_"
+
+	annotation PBI_ResultType = Table
+

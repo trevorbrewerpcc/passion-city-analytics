@@ -1,0 +1,132 @@
+table settings
+	lineageTag: 5e982ed3-028a-4fe0-a150-3ca99fa3b7f9
+
+	measure meal_cost = LOOKUPVALUE(settings[value],settings[key], "meals_price")
+		lineageTag: 927ee7a3-e32d-4a7b-90c7-7857d355092f
+
+	measure meals_total = value([meal_cost]) * CALCULATE(sum(orders[quantity]))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 8d93c7a4-57c7-4f11-b513-19c6bb7c9d2a
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4524fcdd-d938-4ec0-b36d-13124dce31dd
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column key
+		dataType: string
+		lineageTag: 2dbc8bff-5e21-4de1-a1d1-fb76c673dd30
+		summarizeBy: none
+		sourceColumn: key
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 2ab023ec-5e3f-44d7-a892-02882fd0c883
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: cf4ace8e-ba9e-447f-8643-ae7e03d9c296
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: string
+		lineageTag: 326b4110-61f2-4d56-b3d1-e1d323603fe3
+		summarizeBy: none
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+	column type
+		dataType: string
+		lineageTag: d97b3a17-7105-4dcf-9f98-7bfd229abc38
+		summarizeBy: none
+		sourceColumn: type
+
+		annotation SummarizationSetBy = Automatic
+
+	column deleted_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 61584876-9905-496d-bfbb-56faf54f2f8b
+		summarizeBy: none
+		sourceColumn: deleted_at
+
+		variation Variation
+			isDefault
+			relationship: 085aa812-16d3-4e03-9639-27ed408e0499
+			defaultHierarchy: LocalDateTable_63eddc19-8606-46b8-870f-389ad2bf3433.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e8bec2be-7a8f-49bd-a7d8-59a706384df3
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 5c1f38eb-9095-4de4-a7c5-83e8c7f49e51
+			defaultHierarchy: LocalDateTable_91ec9581-06b7-4ae1-b11f-ff9b32fb1244.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6fd07ac0-6d6b-4906-b95d-ac0a017b39c8
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 87add5a8-9e75-4f33-8926-da03f42e500a
+			defaultHierarchy: LocalDateTable_8ba965d0-f5cd-441d-a351-c6e2878f8810.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: int64
+		formatString: 0
+		lineageTag: bd4d514b-d06d-4da2-aab7-32e51b5d70c7
+		summarizeBy: sum
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column rules
+		dataType: string
+		lineageTag: e601987f-637d-4a80-969d-73d7bd355213
+		summarizeBy: none
+		sourceColumn: rules
+
+		annotation SummarizationSetBy = Automatic
+
+	partition settings = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"0fa0baa2-7274-4b90-b1ab-c577537b6796" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="0fa0baa2-7274-4b90-b1ab-c577537b6796"]}[Data],
+				    #"passioncamp_production settings_" = #"0fa0baa2-7274-4b90-b1ab-c577537b6796"{[entity="passioncamp_production settings",version=""]}[Data]
+				in
+				    #"passioncamp_production settings_"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,39 @@
+table RefreshMetadata
+	lineageTag: cd6b54f8-0ffe-4aa2-a0db-6ced736fecb5
+
+	measure 'Last Refreshed' = "Last updated: " & FORMAT(MAX('RefreshMetadata'[RefreshTime]), "MMM D, YYYY h:mm AM/PM")
+		lineageTag: 023c6498-e9a9-4d0a-bf29-6d22028773b2
+
+	column RefreshTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d61b0798-e7a7-45a2-bea2-e301e02fb36e
+		summarizeBy: none
+		sourceColumn: RefreshTime
+
+		variation Variation
+			isDefault
+			relationship: e508965f-9d03-4d05-8979-03d4eea117d3
+			defaultHierarchy: LocalDateTable_b84982da-fd31-460f-91dc-b795a588b92d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition RefreshMetadata = m
+		mode: import
+		source =
+				let
+				    RefreshTimeUTC = DateTimeZone.UtcNow(),
+				    RefreshTimeLocal = DateTimeZone.SwitchZone(RefreshTimeUTC, -4), // adjust offset, -4 during EDT
+				    RefreshTime = DateTimeZone.RemoveZone(RefreshTimeLocal),
+				    Source = #table(
+				        {"RefreshTime"},
+				        {{RefreshTime}}
+				    ),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"RefreshTime", type datetime}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

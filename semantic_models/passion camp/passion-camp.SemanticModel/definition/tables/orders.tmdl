@@ -1,0 +1,149 @@
+table orders
+	lineageTag: 0174f462-9a96-4ed9-9ce2-b395da0a7fa2
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 8543c046-e468-4fe4-a788-37c0dd02250f
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_group_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d627b5d7-e590-4e9a-bf2a-fac3a0c33d09
+		summarizeBy: none
+		sourceColumn: event_group_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_cost
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 2ca2bb98-5d4b-4568-b1d5-a9a4be67f787
+		summarizeBy: sum
+		sourceColumn: unit_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 902d031a-f39a-41d9-a75d-f87dfcc83820
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column notes
+		dataType: string
+		lineageTag: 4af11ec2-a4f2-44f8-9b6b-8330d5bf5c83
+		summarizeBy: none
+		sourceColumn: notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column deleted_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 807bb81f-2666-43c7-a8fd-93de434f48e4
+		summarizeBy: none
+		sourceColumn: deleted_at
+
+		variation Variation
+			isDefault
+			relationship: 2cbc2df1-0aa4-475b-9762-ecd62bee48ce
+			defaultHierarchy: LocalDateTable_780d4a3b-e81c-4f5c-ad48-247d738f7d2a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1f6f08c5-9bed-45c6-985d-dcb584042f01
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: c314490d-5e3d-4a73-a660-31e56e3651b4
+			defaultHierarchy: LocalDateTable_cb577624-fe69-47b6-b005-3a503bc74e91.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 01243bb5-7460-498f-8049-8e29049ca2e0
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 97921978-7b1d-4da7-88fb-e0b70a5e0dfd
+			defaultHierarchy: LocalDateTable_a1d43d69-6eb8-446d-9d69-99c5fa304179.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column orderable_type
+		dataType: string
+		lineageTag: 6cb55fbf-fd2e-4bee-be51-4b47a89ff018
+		summarizeBy: none
+		sourceColumn: orderable_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column orderable_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 80562612-767f-4024-b6c6-8b5f1305735c
+		summarizeBy: none
+		sourceColumn: orderable_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column deleted_triggered_by
+		dataType: string
+		lineageTag: 6c50cb53-ef1d-46b2-8c36-f1db4d498c90
+		summarizeBy: none
+		sourceColumn: deleted_triggered_by
+
+		annotation SummarizationSetBy = Automatic
+
+	column orderable_type_simplified = SUBSTITUTE(orders[orderable_type],"App\Models\Event","")
+		lineageTag: f86b3c1d-11ad-47a1-be62-c7bd8ee046c0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_cost = orders[quantity] * orders[unit_cost]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: b7277051-9215-48fe-a2c0-a35051caf822
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column eventgroupprimaryhotel = LOOKUPVALUE(EventGroupHotel2[Hotel Name],EventGroupHotel2[Event Group ID],orders[event_group_id])
+		lineageTag: c25b23b1-c9e3-4288-be23-17653adffdcf
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition orders = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"34dccf2f-33be-4d16-beed-eccf384277ae" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="34dccf2f-33be-4d16-beed-eccf384277ae"]}[Data],
+				    #"passioncamp_production orders_" = #"34dccf2f-33be-4d16-beed-eccf384277ae"{[entity="passioncamp_production orders",version=""]}[Data]
+				in
+				    #"passioncamp_production orders_"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

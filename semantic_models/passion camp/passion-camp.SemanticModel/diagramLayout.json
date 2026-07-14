@@ -1,0 +1,215 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 1133.3333333333335,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 921.99999999999977,
+            "y": 864
+          },
+          "nodeIndex": "events",
+          "nodeLineageTag": "69008c7f-225e-4d9c-b35a-f1f7f6b2cdc0",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 278,
+            "y": 792.57142857142867
+          },
+          "nodeIndex": "groups",
+          "nodeLineageTag": "113500db-08b5-4850-984d-609a9bd93b35",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 306,
+            "y": 180.28571428571428
+          },
+          "nodeIndex": "hotels",
+          "nodeLineageTag": "bec1506c-bfe4-458c-8bf1-b6e2500451b0",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1562.2857142857142,
+            "y": 168.952380952381
+          },
+          "nodeIndex": "misc_items",
+          "nodeLineageTag": "06769d1e-4ed2-46a3-b3df-fd8ea4c121f4",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1512.2857142857142,
+            "y": 829.14285714285722
+          },
+          "nodeIndex": "packages",
+          "nodeLineageTag": "f91915fb-b5e3-49d0-a399-8d6e28f121f5",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 586,
+            "y": 790
+          },
+          "nodeIndex": "event_groups",
+          "nodeLineageTag": "d03d22bd-c796-47d8-b75c-fcf93d6ba826",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 574,
+            "y": 178
+          },
+          "nodeIndex": "event_hotels",
+          "nodeLineageTag": "ec36d185-f0c0-4f90-8e3f-fc44d5437433",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 1198,
+            "y": 162
+          },
+          "nodeIndex": "event_misc_items",
+          "nodeLineageTag": "7dd7b21c-7d42-4777-adbf-ec09c64de66f",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1230,
+            "y": 812
+          },
+          "nodeIndex": "event_packages",
+          "nodeLineageTag": "39eedf70-6d15-449a-95c0-45fa3b10d3e8",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 927.5,
+            "y": 484.75
+          },
+          "nodeIndex": "orders",
+          "nodeLineageTag": "0174f462-9a96-4ed9-9ce2-b395da0a7fa2",
+          "size": {
+            "height": 300,
+            "width": 231.14285714285711
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 786
+          },
+          "nodeIndex": "users",
+          "nodeLineageTag": "2401e69e-0e92-47e3-9d82-7035afa435ec",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 1821.7142857142858,
+            "y": 394.57142857142861
+          },
+          "nodeIndex": "settings",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 914.047619047619,
+            "y": 226
+          },
+          "nodeIndex": "EventGroupHotel",
+          "nodeLineageTag": "3b09f6d8-4808-439c-a30f-e86e01dcf18f",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2105.7142857142858,
+            "y": 454
+          },
+          "nodeIndex": "EventGroupHotel2",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2389.7142857142858,
+            "y": 466
+          },
+          "nodeIndex": "RefreshMetadata",
+          "nodeLineageTag": "cd6b54f8-0ffe-4aa2-a0db-6ced736fecb5",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 60,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,93 @@
+table EventGroupHotel2
+	lineageTag: 51ccb20c-d632-4f9c-b10c-b5d5423933a0
+
+	column 'Event Group ID'
+		formatString: 0
+		lineageTag: 5212d1a4-fcb3-4be8-9a5a-4fdf5028c1c7
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [Event Group ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Orderable ID'
+		formatString: 0
+		lineageTag: 367b46ae-1664-4009-a1e0-ab383733d539
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [Orderable ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hotel ID'
+		formatString: 0
+		lineageTag: 60659997-fbc3-457b-99ba-ddf38cbbc537
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [Hotel ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Event ID'
+		formatString: 0
+		lineageTag: 32e943d8-9c5e-4517-96b3-5c129ea981e3
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [Event ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hotel Name'
+		lineageTag: 455e8110-486e-4d0a-87b1-05f510d37d64
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Hotel Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Name'
+		lineageTag: 87edea4d-e6b5-4ba2-ad79-dacc8195a358
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Group Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order ID'
+		formatString: 0
+		lineageTag: f3a21e29-7a9d-4c3d-9cc6-86c987100da3
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [Order ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Event Name'
+		lineageTag: 8471bacb-dc28-41ad-8e38-18f2176051c4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Event Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EventGroupHotel2 = calculated
+		mode: import
+		source =
+				
+				SELECTCOLUMNS(
+				    FILTER(orders, orders[orderable_type_simplified] = "Hotel" && ISBLANK(orders[deleted_at])),
+				    "Order ID", orders[id],
+				    "Orderable ID", orders[orderable_id],
+				    "Hotel ID", LOOKUPVALUE(event_hotels[hotel_id],event_hotels[id],orders[orderable_id]),
+				    "Event ID", LOOKUPVALUE(event_hotels[event_id],event_hotels[id],orders[orderable_id]),
+				    "Event Name", LOOKUPVALUE(events[name],events[id],LOOKUPVALUE(event_hotels[event_id],event_hotels[id],orders[orderable_id])),
+				    "Hotel Name", LOOKUPVALUE(hotels[name],hotels[id],LOOKUPVALUE(event_hotels[hotel_id],event_hotels[id],orders[orderable_id])),
+				    "Event Group ID", orders[event_group_id],
+				    "Group Name", LOOKUPVALUE(groups[name], groups[id], LOOKUPVALUE(event_groups[group_id],event_groups[id],orders[event_group_id]))
+				    // "Event Group ID", event_groups[id],
+				    // "Hotel ID", event_hotels[hotel_id],
+				    // "Hotel Name", LOOKUPVALUE(hotels[name], hotels[id], event_hotels[hotel_id])
+				)
+
+	annotation PBI_Id = 83af9f85de274a888ecf1415f12be120
+

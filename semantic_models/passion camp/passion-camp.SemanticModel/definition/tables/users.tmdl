@@ -1,0 +1,169 @@
+table users
+	lineageTag: 2401e69e-0e92-47e3-9d82-7035afa435ec
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 99cc4497-48aa-49ec-bd56-7be6c1b8aac4
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_name
+		dataType: string
+		lineageTag: cd90b72c-eb8a-40dd-a166-160fc64bda26
+		summarizeBy: none
+		sourceColumn: first_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_name
+		dataType: string
+		lineageTag: b570c035-fed1-40be-a807-01007c3cec6c
+		summarizeBy: none
+		sourceColumn: last_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column email
+		dataType: string
+		lineageTag: 83ea462e-a194-4192-a8e0-c5c03636e77e
+		summarizeBy: none
+		sourceColumn: email
+
+		annotation SummarizationSetBy = Automatic
+
+	column email_verified_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a7624d4b-defa-464a-b823-49ef41251f14
+		summarizeBy: none
+		sourceColumn: email_verified_at
+
+		variation Variation
+			isDefault
+			relationship: c604a1e3-e939-4db3-929e-198e03be1c36
+			defaultHierarchy: LocalDateTable_4d69663b-8323-4469-9caa-a21bcf58dcd2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column password
+		dataType: string
+		lineageTag: 4522ea38-bbb7-4866-80fc-1d1fbcc01cdf
+		summarizeBy: none
+		sourceColumn: password
+
+		annotation SummarizationSetBy = Automatic
+
+	column remember_token
+		dataType: string
+		lineageTag: 79a7ef13-47cf-46fb-8387-95329f813c67
+		summarizeBy: none
+		sourceColumn: remember_token
+
+		annotation SummarizationSetBy = Automatic
+
+	column deleted_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c28c9de5-89e2-46f4-9d56-ddb889b5c60b
+		summarizeBy: none
+		sourceColumn: deleted_at
+
+		variation Variation
+			isDefault
+			relationship: f482cfb4-46c3-4676-9fd4-7b24f3e08317
+			defaultHierarchy: LocalDateTable_aa9df718-ea12-4618-8876-141b0ebd6e1d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e592f9df-842b-4ed1-8713-d212511611fa
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: bc01e9cd-04de-4ccf-8b36-e0319a1e6a13
+			defaultHierarchy: LocalDateTable_45233bcd-4f52-4e84-8599-24d3f404f6d1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7d25690a-2a8c-4ed9-928e-c6bc8a69654e
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 476baff4-bdb1-4277-bcd6-3173bac45732
+			defaultHierarchy: LocalDateTable_c62384e2-96ec-4a3b-aaa8-03051af7a45b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column group_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a8137f6-0543-47a8-8dee-b8b733491d49
+		summarizeBy: sum
+		sourceColumn: group_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column hubspot_contact_id
+		dataType: string
+		lineageTag: aac38612-d8a4-4348-891b-56173afc2c48
+		summarizeBy: none
+		sourceColumn: hubspot_contact_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone
+		dataType: string
+		lineageTag: 7c2cf8d6-6a38-47e4-9589-0eccaf5078ee
+		summarizeBy: none
+		sourceColumn: phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone_alt
+		dataType: string
+		lineageTag: 9ecf28e0-2c8d-4b95-b5e6-100665a1d9aa
+		summarizeBy: none
+		sourceColumn: phone_alt
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_login_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a252910d-4e86-4d50-989a-a2155d6058f8
+		summarizeBy: none
+		sourceColumn: last_login_at
+
+		variation Variation
+			isDefault
+			relationship: 4c0fe4a6-1201-4dd4-bf5c-1f289c52b673
+			defaultHierarchy: LocalDateTable_a5eb9a31-13e2-4abf-b472-fd3a7621af25.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition users = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"34dccf2f-33be-4d16-beed-eccf384277ae" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="34dccf2f-33be-4d16-beed-eccf384277ae"]}[Data],
+				    #"passioncamp_production users_" = #"34dccf2f-33be-4d16-beed-eccf384277ae"{[entity="passioncamp_production users",version=""]}[Data]
+				in
+				    #"passioncamp_production users_"
+
+	annotation PBI_ResultType = Table
+

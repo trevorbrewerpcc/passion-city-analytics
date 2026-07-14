@@ -1,0 +1,84 @@
+table EventGroupHotel
+	lineageTag: 3b09f6d8-4808-439c-a30f-e86e01dcf18f
+
+	column 'Event ID'
+		formatString: 0
+		lineageTag: ade82327-b28f-461c-98db-407e21728722
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [Event ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Event Name'
+		lineageTag: 8b375caf-bfdf-4a5b-a5ee-fc04a6d39b1c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Event Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group ID'
+		formatString: 0
+		lineageTag: d9da6030-3986-468a-8f4b-f71255900960
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [Group ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Name'
+		lineageTag: 5fac0151-08d2-41b8-914a-ddd457a3fb45
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Group Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hotel ID'
+		formatString: 0
+		lineageTag: 75545e11-70ef-4ddb-a1bf-e1d6525e5f93
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [Hotel ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hotel Name'
+		lineageTag: 7689fac5-204e-4165-b720-4cff1e77d64e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Hotel Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Event Group ID'
+		formatString: 0
+		lineageTag: ef4e8d3c-7230-4628-bd4e-e6b756d0623e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Event Group ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EventGroupHotel = calculated
+		mode: import
+		source =
+				
+				SELECTCOLUMNS(
+				    GENERATE(
+				        GENERATE(
+				            events,
+				            FILTER(event_groups, event_groups[event_id] = events[id])
+				        ),
+				        FILTER(event_hotels, event_hotels[event_id] = events[id])
+				    ),
+				    "Event ID", events[id],
+				    "Event Name", events[name],
+				    "Group ID", event_groups[group_id],
+				    "Group Name", LOOKUPVALUE(groups[name], groups[id], event_groups[group_id]),
+				    "Event Group ID", event_groups[id],
+				    "Hotel ID", event_hotels[hotel_id],
+				    "Hotel Name", LOOKUPVALUE(hotels[name], hotels[id], event_hotels[hotel_id])
+				)
+

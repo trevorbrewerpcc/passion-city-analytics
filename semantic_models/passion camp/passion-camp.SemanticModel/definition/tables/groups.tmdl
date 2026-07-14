@@ -1,0 +1,121 @@
+table groups
+	lineageTag: 113500db-08b5-4850-984d-609a9bd93b35
+
+	/// Returns the hotel name associated with the group
+	measure 'Hotel Name' =
+			VAR CurrentGroupId = MAX(groups[id])
+			VAR AssociatedEventId = MAXX(FILTER(event_groups, event_groups[group_id] = CurrentGroupId), event_groups[event_id])
+			VAR HotelId = MAXX(FILTER(event_hotels, event_hotels[event_id] = AssociatedEventId), event_hotels[hotel_id])
+			RETURN MAXX(FILTER(hotels, hotels[id] = HotelId), hotels[name])
+		lineageTag: 24706142-0a36-450b-b857-3c7ad94be970
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: f77a0973-dfd3-4e0c-a016-3044bac2ce5a
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 788ab366-9b33-43d2-b43a-557cf0c36076
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column pastor_name
+		dataType: string
+		lineageTag: 6aaaf266-c67f-4ddf-8b14-8fe44c0d6134
+		summarizeBy: none
+		sourceColumn: pastor_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column website
+		dataType: string
+		lineageTag: aaafe3cc-9eab-4541-9861-08c119d30880
+		summarizeBy: none
+		sourceColumn: website
+
+		annotation SummarizationSetBy = Automatic
+
+	column student_pastor_people_id
+		dataType: int64
+		formatString: 0
+		lineageTag: bc0cd0c6-3e04-444e-931d-cb3073f90f43
+		summarizeBy: sum
+		sourceColumn: student_pastor_people_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column deleted_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2d5ba22d-81b2-4a16-b17f-caa187cd56c9
+		summarizeBy: none
+		sourceColumn: deleted_at
+
+		variation Variation
+			isDefault
+			relationship: 09a067fd-92c2-4d10-992a-98b49c2f4f05
+			defaultHierarchy: LocalDateTable_87695a78-3128-4df8-9ca2-a07275778454.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d06ac658-75fe-4ae9-b933-cf48f00bb726
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 8cf0e844-44bd-431a-a1c0-1fd11710c472
+			defaultHierarchy: LocalDateTable_4e43da05-914b-4655-aefa-3de573274d84.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5ebfb7a0-239d-40e4-b7c0-414c9dd68967
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: cfb8aa08-d3fc-4d20-b032-432cc61a19ff
+			defaultHierarchy: LocalDateTable_89213803-9398-4daf-89f1-304ee65e393b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column contact_user_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0542e976-b874-4e5b-9342-d900d5834b45
+		summarizeBy: none
+		sourceColumn: contact_user_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition groups = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"8623c9fd-3a04-4e30-a15c-e94a9053af9f" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="8623c9fd-3a04-4e30-a15c-e94a9053af9f"]}[Data],
+				    #"passioncamp_production groups_" = #"8623c9fd-3a04-4e30-a15c-e94a9053af9f"{[entity="passioncamp_production groups",version=""]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(#"passioncamp_production groups_", each not Text.Contains([name], "Test") and not Text.Contains([name], "TEST") and not Text.Contains([name], "test"))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

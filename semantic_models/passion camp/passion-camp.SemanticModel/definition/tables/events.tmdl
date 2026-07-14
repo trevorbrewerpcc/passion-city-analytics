@@ -1,0 +1,72 @@
+table events
+	lineageTag: 69008c7f-225e-4d9c-b35a-f1f7f6b2cdc0
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: c8ee65dd-9f1d-473e-851b-921a42f82b7a
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column key
+		dataType: string
+		lineageTag: 81106f07-66f2-47d4-9e02-d51ce179eb8a
+		summarizeBy: none
+		sourceColumn: key
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 88f298d4-6e90-4300-90d8-29e21f52272d
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 85ee89a6-ed4f-4c52-a238-826da115b6ca
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 7caad3dd-56cc-4349-b028-29913ec2b42d
+			defaultHierarchy: LocalDateTable_0be6bf67-dee9-499f-85ed-5ddd6ce75b0e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b62a9e73-6719-4ed6-9354-57923a846d1d
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: e057f12e-b2c8-4ada-bd79-5330553f4592
+			defaultHierarchy: LocalDateTable_dc69d859-a1dc-4fe0-9222-79f8db37e85f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition events = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"8623c9fd-3a04-4e30-a15c-e94a9053af9f" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="8623c9fd-3a04-4e30-a15c-e94a9053af9f"]}[Data],
+				    #"passioncamp_production events_" = #"8623c9fd-3a04-4e30-a15c-e94a9053af9f"{[entity="passioncamp_production events",version=""]}[Data]
+				in
+				    #"passioncamp_production events_"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

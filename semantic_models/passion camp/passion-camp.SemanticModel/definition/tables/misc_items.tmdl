@@ -1,0 +1,84 @@
+table misc_items
+	lineageTag: 06769d1e-4ed2-46a3-b3df-fd8ea4c121f4
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: fd8f213c-a727-4aaf-9cda-93f38f21ba86
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column key
+		dataType: string
+		lineageTag: cfcd5ea9-276f-42f2-bd48-780eb8a2c979
+		summarizeBy: none
+		sourceColumn: key
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 19d09f24-2cc8-4eec-8bc2-ddb32b1e1a36
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column deleted_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2d156a93-7f14-40ff-a7f7-69e5c3481e5b
+		summarizeBy: none
+		sourceColumn: deleted_at
+
+		variation Variation
+			isDefault
+			relationship: 8591c675-24de-4d23-8d92-aae7c3d9a7dd
+			defaultHierarchy: LocalDateTable_10c24e5b-6af4-4d5e-b1b4-878e0e969832.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5ad125ae-db84-4479-a74b-5027e8ac8d54
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: a2d1ab69-fc2c-4770-b7ac-034cbc49bf25
+			defaultHierarchy: LocalDateTable_1fd06c08-f35b-4cce-82e9-7791f741fd6b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 578f2ee8-7dcf-4de6-9fdd-bbfd5d83110f
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 09ea7b67-b042-4075-b4cf-7ae9a7440012
+			defaultHierarchy: LocalDateTable_7064105d-092e-4775-8045-bc8e484e19a9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition misc_items = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"8623c9fd-3a04-4e30-a15c-e94a9053af9f" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="8623c9fd-3a04-4e30-a15c-e94a9053af9f"]}[Data],
+				    #"passioncamp_production misc_items_" = #"8623c9fd-3a04-4e30-a15c-e94a9053af9f"{[entity="passioncamp_production misc_items",version=""]}[Data]
+				in
+				    #"passioncamp_production misc_items_"
+
+	annotation PBI_ResultType = Table
+

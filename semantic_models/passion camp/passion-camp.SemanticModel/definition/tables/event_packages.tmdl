@@ -1,0 +1,104 @@
+table event_packages
+	lineageTag: 39eedf70-6d15-449a-95c0-45fa3b10d3e8
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 28a96ea5-b99e-4ffd-86ed-08afdc9c7103
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f5e9d9ca-f7eb-463b-9e1e-1c1917f7b34e
+		summarizeBy: sum
+		sourceColumn: event_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column package_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 24f6a214-93c3-4d11-9240-64b6c97a8080
+		summarizeBy: none
+		sourceColumn: package_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 62ec2afa-f7b7-4f9f-91c7-c3138b9ee030
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column web_price
+		dataType: double
+		lineageTag: 010ee274-23ad-4def-82d0-2e9c0b3dfbcd
+		summarizeBy: sum
+		sourceColumn: web_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column deleted_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ff82123a-f465-419f-8feb-8f872fb88f75
+		summarizeBy: none
+		sourceColumn: deleted_at
+
+		variation Variation
+			isDefault
+			relationship: 6112ccff-39dd-4307-b8f8-ccb5b7723284
+			defaultHierarchy: LocalDateTable_60c1beed-a226-45d8-82ac-b88f89143ce3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 820a30bd-a77c-4450-adbc-6e0494aca7cd
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: ad9d9e43-3fb4-43e7-9ac8-6d0495c1e823
+			defaultHierarchy: LocalDateTable_08d4234c-28bf-4cfa-b5b6-8be380e91ff7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b3eabdf5-f03d-4999-b128-822254a59f44
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 7bbaf41a-937e-417b-bae4-7b96fb6e6b82
+			defaultHierarchy: LocalDateTable_d7647fa7-6e9f-4691-8a06-b017ee6030c0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition event_packages = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"fffc933b-f612-446a-b2c4-bbe73413739c" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="fffc933b-f612-446a-b2c4-bbe73413739c"]}[Data],
+				    #"passioncamp_production event_packages_" = #"fffc933b-f612-446a-b2c4-bbe73413739c"{[entity="passioncamp_production event_packages",version=""]}[Data]
+				in
+				    #"passioncamp_production event_packages_"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,189 @@
+table event_hotels
+	lineageTag: ec36d185-f0c0-4f90-8e3f-fc44d5437433
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: f7be31e3-69ae-4fe7-84eb-7904cb70f26f
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f817c194-e9d1-4829-9c91-4016b313722a
+		summarizeBy: sum
+		sourceColumn: event_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column hotel_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 385225cd-af80-4cbd-baf8-c80f45ab5dba
+		summarizeBy: none
+		sourceColumn: hotel_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: fe7f201d-cd88-4d29-9ab0-479db5520f79
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column number_of_rooms
+		dataType: int64
+		formatString: 0
+		lineageTag: f2ec946c-e5f2-43da-a086-e2edb899c7ee
+		summarizeBy: sum
+		sourceColumn: number_of_rooms
+
+		annotation SummarizationSetBy = Automatic
+
+	column bus_parking
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f475375c-2741-493a-bc81-1ddeec2fd40e
+		summarizeBy: none
+		sourceColumn: bus_parking
+
+		annotation SummarizationSetBy = Automatic
+
+	column s3_file_key
+		dataType: string
+		lineageTag: 85041590-7fde-49e3-a13f-d0cc8465914f
+		summarizeBy: none
+		sourceColumn: s3_file_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column web_price
+		dataType: double
+		lineageTag: 434506c7-3803-4922-849d-3f016812377a
+		summarizeBy: sum
+		sourceColumn: web_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column room_cost_per_night
+		dataType: double
+		lineageTag: b60f4925-6802-448a-8457-52245a402e8c
+		summarizeBy: sum
+		sourceColumn: room_cost_per_night
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column additional_room_cost
+		dataType: double
+		lineageTag: c53fff55-621e-475d-85b5-1e2563061f52
+		summarizeBy: sum
+		sourceColumn: additional_room_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column deleted_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 37ce0b20-80b5-465e-8a56-4ecfd250f5cb
+		summarizeBy: none
+		sourceColumn: deleted_at
+
+		variation Variation
+			isDefault
+			relationship: df8d73ca-dc5a-4b20-a31c-cb089eb5c07f
+			defaultHierarchy: LocalDateTable_9595bf6a-cecd-4e91-a31e-fbfa9daa9ff8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ee5c423f-8970-4eac-b8f3-fa4885f002b1
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 6c5879d6-14d1-4a6a-bf30-380a50b0d418
+			defaultHierarchy: LocalDateTable_9fd8e6eb-5e49-4194-8c6e-bb879f053891.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6e704682-6232-47b1-8502-41e6ba6039c6
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: d4d7c9ea-6588-42d2-901c-7b83af3005b2
+			defaultHierarchy: LocalDateTable_3995661d-baf8-4ca1-b89a-b94271c6b26f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column contracted_rooms
+		dataType: int64
+		formatString: 0
+		lineageTag: 2063871e-5461-4fbe-95ef-fbc811fcce35
+		summarizeBy: sum
+		sourceColumn: contracted_rooms
+
+		annotation SummarizationSetBy = Automatic
+
+	column cc_auth_method
+		dataType: string
+		lineageTag: 2d5e08a6-48a1-47d7-80ca-2ada3cf1a4a1
+		summarizeBy: none
+		sourceColumn: cc_auth_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column cc_auth_file_name
+		dataType: string
+		lineageTag: 8fab6103-119d-4f34-a7b5-87d8c4810675
+		summarizeBy: none
+		sourceColumn: cc_auth_file_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column cc_auth_uploaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f578b71c-cd5b-4991-9337-6462c189d2dd
+		summarizeBy: none
+		sourceColumn: cc_auth_uploaded_at
+
+		variation Variation
+			isDefault
+			relationship: fff3e91e-b5e6-4b54-9fbc-de4c18e60e80
+			defaultHierarchy: LocalDateTable_2cf0ffce-2d28-43cc-b4aa-737a897e8e9d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition event_hotels = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"fffc933b-f612-446a-b2c4-bbe73413739c" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="fffc933b-f612-446a-b2c4-bbe73413739c"]}[Data],
+				    #"passioncamp_production event_hotels_" = #"fffc933b-f612-446a-b2c4-bbe73413739c"{[entity="passioncamp_production event_hotels",version=""]}[Data]
+				in
+				    #"passioncamp_production event_hotels_"
+
+	annotation PBI_ResultType = Table
+
