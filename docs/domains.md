@@ -66,6 +66,24 @@
 
 ---
 
+### 5. Passion Camp
+- **Grain:** One row = one line item order
+- **Primary fact table:** `fact_orders`
+- **Source:** MySQL database hosted on Digital Ocean
+- **Supporting dimensions:**
+  - `dim_event` — camp events
+  - `dim_package` — package types
+  - `dim_hotel` — hotel options and special accommodation flags
+  - `dim_misc_item` — miscellaneous cost items
+  - `dim_camp_user` — camp registrants, email-matched to dim_person where possible
+- **Key questions:**
+  - How much money are we owed per event?
+  - Which hotels need special accommodations?
+  - What is the cost breakdown by order type per event?
+  - How many packages were ordered vs fulfilled?
+
+---
+
 ## Shared Dimension
 
 ### dim_person
@@ -96,6 +114,13 @@
 - **Grain:** One row = one Sunday per campus
 - **Sources:** fact_sunday_attendance + fact_ministry_checkins joined on date and campus
 - **Key question:** How did Sunday go across all ministry areas?
+
+### mart_camp_engagement
+- **Grain:** One row = one camp attendee per event
+- **Sources:** dim_camp_user + dim_person (email match) + fact_group_membership_history
+  + fact_giving
+- **Key question:** Are Passion Camp attendees givers and group members?
+  Is camp attendance correlated with deeper engagement?
 
 ---
 
@@ -128,8 +153,8 @@ funnel analysis consistent across offerings.
 ### Engagement — connection requests
 Connection requests span pastoral care (prayer, material help), ministry
 placement (volunteer, family group, premarital counseling), and spiritual
-milestones (baptism). All are stored in fact_connection_requests tagged
-by connection opportunity type.
+milestones (baptism). All stored in fact_connection_requests tagged by
+connection opportunity type.
 
 ### Engagement — salvation decisions
 Sourced from the Jesus is Life workflow in Rock RMS. One row per decision.
@@ -140,6 +165,16 @@ How long have you attended and how did you find us are stored as person
 attributes derived from the City Survey workflow. These enrich dim_person
 as descriptive columns rather than living in a separate fact table.
 
+### Passion Camp — person matching
+Camp users are matched to Rock RMS persons via email. This is a fuzzy join
+resolved in an intermediate dbt model. Unmatched users remain in dim_camp_user
+without a person_id. Match quality should be monitored as a dbt test.
+
+### Passion Camp — pipeline architecture
+Direct Power BI connection to MySQL on Digital Ocean is avoided due to
+IP whitelisting complexity. Instead: MySQL → dbt → BigQuery → Power BI.
+Power BI connects only to BigQuery, which has a stable Google endpoint.
+
 ### Distinguishing Sunday vs Event check-ins in Rock
 TBD — need to confirm whether the split is by Group Type, day of week,
 campus, or a combination. This determines filter logic in staging models.
@@ -148,9 +183,10 @@ campus, or a combination. This determines filter logic in staging models.
 
 ## Modeling Notes
 - Domains defined July 2026 based on recurring leadership questions
-- Four domains: Sunday Ministry, Giving, Engagement, Events
+- Five domains: Sunday Ministry, Giving, Engagement, Events, Passion Camp
 - Each domain gets its own Power BI semantic model
 - Cross-domain questions are answered via marts, not by mixing semantic models
 - dim_person is the spine of the entire model — built first, tested rigorously
 - dbt staging layer splits Rock check-in data into Sunday vs Event streams
   before it reaches fact tables
+- Passion Camp MySQL source requires separate dbt connection profile
