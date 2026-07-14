@@ -1,0 +1,131 @@
+table 'dim_project (2)'
+	lineageTag: 3267c704-8018-467e-aa23-282641695cd7
+
+	column ProjectKey
+		dataType: int64
+		formatString: 0
+		lineageTag: d7bf7f0e-a39a-46d2-984e-39aca1bb0c78
+		summarizeBy: none
+		sourceColumn: ProjectKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectName
+		dataType: string
+		lineageTag: 8678218e-2976-4f8c-b279-afd6a2a72d68
+		summarizeBy: none
+		sourceColumn: ProjectName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectStatus
+		dataType: string
+		lineageTag: 4d3b5e7c-e54d-4e2f-8338-1cbec8b67103
+		summarizeBy: none
+		sourceColumn: ProjectStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column MinCapacity
+		dataType: string
+		lineageTag: 6b597597-1a76-479b-89a2-57fd17997b2d
+		summarizeBy: none
+		sourceColumn: MinCapacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaxCapacity
+		dataType: int64
+		formatString: 0
+		lineageTag: eeef91a5-af3d-411b-ae65-a0b8bf8b884a
+		summarizeBy: sum
+		sourceColumn: MaxCapacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: fb7830ce-fdc3-403c-b540-e20e12379def
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgeRange
+		dataType: string
+		lineageTag: ad8e15a2-6f2b-4b07-99c5-1b0a4709d1d4
+		summarizeBy: none
+		sourceColumn: AgeRange
+
+		annotation SummarizationSetBy = Automatic
+
+	column Event
+		dataType: string
+		lineageTag: ea74c8b4-610e-41c5-b4c8-d28f8ff86f12
+		summarizeBy: none
+		sourceColumn: Event
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectStartDate
+		dataType: string
+		lineageTag: f9ce2847-0965-4154-9876-c5d249ee27c4
+		summarizeBy: none
+		sourceColumn: ProjectStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectStartDateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 85c96269-3a1f-4dfb-ad47-dd8b3cc51907
+		summarizeBy: none
+		sourceColumn: ProjectStartDateTime
+
+		variation Variation
+			isDefault
+			relationship: d4c5e843-2aa8-4651-b88d-73632e1877d4
+			defaultHierarchy: LocalDateTable_42b10cce-e78e-4d87-8931-0c62116755a5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectEndDate
+		dataType: string
+		lineageTag: 1c457587-d36b-4bca-afa1-d0e6e507232f
+		summarizeBy: none
+		sourceColumn: ProjectEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectDayOfWeek
+		dataType: string
+		lineageTag: acc0f640-85e5-4026-912d-55df91b91c9e
+		summarizeBy: none
+		sourceColumn: ProjectDayOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimeOfDay
+		dataType: string
+		lineageTag: eb1fc475-c917-4d38-8faa-e871b4b2a533
+		summarizeBy: none
+		sourceColumn: TimeOfDay
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim_project (2)' = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"4b7b368b-a9df-4dd2-807d-ad02d718ea95" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="4b7b368b-a9df-4dd2-807d-ad02d718ea95"]}[Data],
+				    dim_project_ = #"4b7b368b-a9df-4dd2-807d-ad02d718ea95"{[entity="dim_project",version=""]}[Data]
+				in
+				    dim_project_
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

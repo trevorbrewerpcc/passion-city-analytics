@@ -1,0 +1,83 @@
+table 'dim_location (2)'
+	lineageTag: 41317205-01c7-4886-8d22-b00c758f7bb6
+
+	column ProjectKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b1e1f438-d426-4f8d-8ebb-053d40f88891
+		summarizeBy: none
+		sourceColumn: ProjectKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 7dad9178-67cc-4235-8d9e-e724e89b4486
+		summarizeBy: count
+		sourceColumn: LocationKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjAddr
+		dataType: string
+		lineageTag: d7965daf-f969-41da-8eec-fb9bfd5b3174
+		summarizeBy: none
+		sourceColumn: ProjAddr
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjCity
+		dataType: string
+		lineageTag: d8cd625c-3ccc-49e7-af86-16e3e338f22a
+		summarizeBy: none
+		sourceColumn: ProjCity
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjState
+		dataType: string
+		lineageTag: 172f35e4-0e99-48b9-b2e8-73e502f22cf7
+		summarizeBy: none
+		sourceColumn: ProjState
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjCountry
+		dataType: string
+		lineageTag: 479608f7-2ad2-4842-9326-c0cb2dfb3b4f
+		summarizeBy: none
+		sourceColumn: ProjCountry
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjPostalCode
+		dataType: string
+		lineageTag: f118cb1a-7b31-47fa-8ddf-ab2e2a2d4d28
+		summarizeBy: none
+		sourceColumn: ProjPostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Address = 'dim_location (2)'[ProjCity] & ", " & 'dim_location (2)'[ProjState]
+		lineageTag: 4ea4f7de-5db3-468e-8258-64206a57feed
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim_location (2)' = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"4b7b368b-a9df-4dd2-807d-ad02d718ea95" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="4b7b368b-a9df-4dd2-807d-ad02d718ea95"]}[Data],
+				    dim_location_ = #"4b7b368b-a9df-4dd2-807d-ad02d718ea95"{[entity="dim_location",version=""]}[Data]
+				in
+				    dim_location_
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

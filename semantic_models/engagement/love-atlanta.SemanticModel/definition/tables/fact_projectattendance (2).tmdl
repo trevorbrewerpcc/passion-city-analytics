@@ -1,0 +1,214 @@
+table 'fact_projectattendance (2)'
+	lineageTag: c8cf0bce-f69d-42e8-adb5-580d2291b2a2
+
+	measure CumulativeSignups =
+			
+			VAR CurrentMaxD = MAX(DateSlicer[MonthDayNumber])
+			VAR SelectedMD = SELECTEDVALUE(DateSlicer[MonthDayNumber], MAX(DateSlicer[MonthDayNumber]))
+			RETURN
+			IF(
+			    CurrentMaxD <= SelectedMD,
+			    CALCULATE(
+			        COUNTROWS('fact_projectattendance (2)'),
+			        REMOVEFILTERS(DateSlicer),
+			        'fact_projectattendance (2)'[MonthDayNumber] <= CurrentMaxD
+			    ),
+			    BLANK()
+			)
+		lineageTag: b48ca734-67cb-4100-a475-08ab88eedd42
+
+	measure DistinctProjects = CALCULATE(DISTINCTCOUNT('fact_projectattendance (2)'[ProjectKey]))
+		formatString: 0
+		lineageTag: ddbbf677-9cac-4f8a-aeba-70fdd7520f8d
+
+	measure DistinctSignups = CALCULATE(DISTINCTCOUNT('fact_projectattendance (2)'[PeopleSignedUp]))
+		formatString: 0
+		lineageTag: 1ba5e680-6c25-4007-9aac-ec69e18d5b39
+
+	measure 'Sign Ups on Selected Day' = ```
+			VAR SelectedDate = SELECTEDVALUE(DateSlicer[MonthDayNumber]) 
+			RETURN CALCULATE(DISTINCTCOUNT('fact_projectattendance (2)'[PeopleSignedUp]), 
+			  'fact_projectattendance (2)'[MonthDayNumber] >= SelectedDate, 
+			  'fact_projectattendance (2)'[MonthDayNumber] < SelectedDate + 1)
+			```
+		formatString: 0
+		lineageTag: c41508a4-c0c4-4caf-9343-90b85977cf94
+
+	measure 'Day of Week' =
+			
+			VAR SelectedMonthDayNumber = SELECTEDVALUE(DateSlicer[MonthDayNumber])
+			VAR SelectedEvent = SELECTEDVALUE('dim_project (2)'[Event])
+			RETURN
+			CALCULATE(SELECTEDVALUE('fact_projectattendance (2)'[DayOfWeekName]), 'fact_projectattendance (2)'[MonthDayNumber] = SelectedMonthDayNumber)
+		lineageTag: 3fe5b08e-b2c7-4f65-a2db-616ca5d84f58
+
+	column ProjectKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 411fe6db-d94e-432a-808c-92e4502ab0be
+		summarizeBy: none
+		sourceColumn: ProjectKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PersonKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d4ee271-3fe5-42d8-b07c-6375d699fb73
+		summarizeBy: count
+		sourceColumn: PersonKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PartnerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b2f10384-8ac7-45d4-8153-cf52a04213a7
+		summarizeBy: count
+		sourceColumn: PartnerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 05c20580-bf58-4336-8eb1-3a46174cef68
+		summarizeBy: count
+		sourceColumn: LocationKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupMemberKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ea359119-8093-40b8-8ed9-03c5a4e66f11
+		summarizeBy: count
+		sourceColumn: GroupMemberKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column UniqPplSignedUp
+		dataType: int64
+		formatString: 0
+		lineageTag: 31cb3924-a3b6-4832-a625-f105cdca2f72
+		summarizeBy: sum
+		sourceColumn: UniqPplSignedUp
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateSignedUp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 21cf46af-28fc-4b14-90ef-6d7044b16368
+		summarizeBy: none
+		sourceColumn: DateSignedUp
+
+		variation Variation
+			isDefault
+			relationship: 309248d8-9af8-4558-9260-c943b56564c1
+			defaultHierarchy: LocalDateTable_7c561f26-b447-4304-a494-c540e40018c8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column groupmemberstatus
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ee4b7b1-08eb-4705-a21c-10dfde10ec9c
+		summarizeBy: sum
+		sourceColumn: groupmemberstatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column isarchived
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 88999d8d-fdc6-4baa-9f25-cc1039c59a40
+		summarizeBy: none
+		sourceColumn: isarchived
+
+		annotation SummarizationSetBy = Automatic
+
+	column PeopleSignedUp
+		dataType: int64
+		formatString: 0
+		lineageTag: f5583c22-4e9d-4277-be1a-33a6777f5b45
+		summarizeBy: sum
+		sourceColumn: PeopleSignedUp
+
+		annotation SummarizationSetBy = Automatic
+
+	column DidAttend
+		dataType: int64
+		formatString: 0
+		lineageTag: ced50be5-9923-46bd-bfce-2c6967607724
+		summarizeBy: sum
+		sourceColumn: DidAttend
+
+		annotation SummarizationSetBy = Automatic
+
+	column CheckedIn
+		dataType: int64
+		formatString: 0
+		lineageTag: 14aac738-adba-4b87-9df5-4c84db5ae34d
+		summarizeBy: sum
+		sourceColumn: CheckedIn
+
+		annotation SummarizationSetBy = Automatic
+
+	column UniquePeopleCheckedIn
+		dataType: int64
+		formatString: 0
+		lineageTag: 798e740a-3d82-45cd-b479-0920cd394a79
+		summarizeBy: sum
+		sourceColumn: UniquePeopleCheckedIn
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthDayNumber =
+			
+			MONTH('fact_projectattendance (2)'[datesignedup]) * 100
+			+ DAY('fact_projectattendance (2)'[datesignedup])
+		formatString: 0
+		lineageTag: 2b5fcd4b-0b84-4515-9fda-78529382706a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeekName = FORMAT('fact_projectattendance (2)'[DateSignedUp],"dddd")
+		lineageTag: 2d12881d-aafa-4624-b794-1c2c32f966c0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column OccurrenceDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3724c394-e1d5-4e55-88a9-da45a95b809f
+		summarizeBy: none
+		sourceColumn: OccurrenceDate
+
+		variation Variation
+			isDefault
+			relationship: a02a4bb5-305e-4c0d-be7a-68a04fba44c2
+			defaultHierarchy: LocalDateTable_1c413e5d-5134-4f38-84b7-452627a01279.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'fact_projectattendance (2)' = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"4b7b368b-a9df-4dd2-807d-ad02d718ea95" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="4b7b368b-a9df-4dd2-807d-ad02d718ea95"]}[Data],
+				    fact_projectattendance_ = #"4b7b368b-a9df-4dd2-807d-ad02d718ea95"{[entity="fact_projectattendance",version=""]}[Data]
+				in
+				    fact_projectattendance_
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

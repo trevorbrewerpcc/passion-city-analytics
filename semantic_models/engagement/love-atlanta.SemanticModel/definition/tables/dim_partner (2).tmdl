@@ -1,0 +1,44 @@
+table 'dim_partner (2)'
+	lineageTag: 99697ed8-750c-4528-8736-756375ca8c51
+
+	column PartnerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b651bac5-54e0-45c9-a634-78edfa6d8c8c
+		summarizeBy: count
+		sourceColumn: PartnerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PartnerGuid
+		dataType: string
+		lineageTag: ba3b353b-196f-48ae-93f2-1869fe9d7009
+		summarizeBy: none
+		sourceColumn: PartnerGuid
+
+		annotation SummarizationSetBy = Automatic
+
+	column PartnerOrganization
+		dataType: string
+		lineageTag: fd08eb2c-edd7-4cc9-9d9f-efb3575bdf28
+		summarizeBy: none
+		sourceColumn: PartnerOrganization
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim_partner (2)' = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"4b7b368b-a9df-4dd2-807d-ad02d718ea95" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="4b7b368b-a9df-4dd2-807d-ad02d718ea95"]}[Data],
+				    dim_partner_ = #"4b7b368b-a9df-4dd2-807d-ad02d718ea95"{[entity="dim_partner",version=""]}[Data]
+				in
+				    dim_partner_
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

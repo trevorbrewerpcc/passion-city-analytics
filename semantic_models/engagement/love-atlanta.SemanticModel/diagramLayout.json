@@ -1,0 +1,113 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 1620,
+        "y": 3.75
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1693.5,
+            "y": 31.25
+          },
+          "nodeIndex": "DateSlicer",
+          "nodeLineageTag": "7898aa1e-5c03-4ea5-8fe7-8ee4f879af50",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1420,
+            "y": 223
+          },
+          "nodeIndex": "DayPicker",
+          "nodeLineageTag": "56ad6acf-0b5b-4d54-9712-7cd0d6dee58f",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2354.104103042097,
+            "y": -28.555828755206335
+          },
+          "nodeIndex": "dim_location (2)",
+          "nodeLineageTag": "41317205-01c7-4886-8d22-b00c758f7bb6",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2047.9430171948111,
+            "y": -40.43173630993067
+          },
+          "nodeIndex": "dim_partner (2)",
+          "nodeLineageTag": "99697ed8-750c-4528-8736-756375ca8c51",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1754,
+            "y": 386.43173630993067
+          },
+          "nodeIndex": "dim_person (2)",
+          "nodeLineageTag": "03743156-a283-4c64-aea9-c88c2ed602fc",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2328.1053442794682,
+            "y": 270.00869830318027
+          },
+          "nodeIndex": "dim_project (2)",
+          "nodeLineageTag": "3267c704-8018-467e-aa23-282641695cd7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2038.5205222430984,
+            "y": 269.52456682531584
+          },
+          "nodeIndex": "fact_projectattendance (2)",
+          "nodeLineageTag": "c8cf0bce-f69d-42e8-adb5-580d2291b2a2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 80,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,26 @@
+table DayPicker
+	lineageTag: 56ad6acf-0b5b-4d54-9712-7cd0d6dee58f
+
+	measure 'DayPicker Value' = SELECTEDVALUE('DayPicker'[DayPicker], 183)
+		formatString: 0
+		lineageTag: 2cd6a6d1-32e8-47d3-adb2-98ca500612af
+
+	column DayPicker
+		formatString: 0
+		lineageTag: 5bc867bc-2637-424f-9473-546e6935bfc0
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition DayPicker = calculated
+		mode: import
+		source = GENERATESERIES(1, 366, 1)
+
+	annotation PBI_Id = a5edc0db1e1e42f48b1399af11186b54
+

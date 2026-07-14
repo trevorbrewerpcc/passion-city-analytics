@@ -1,0 +1,77 @@
+table 'dim_person (2)'
+	lineageTag: 03743156-a283-4c64-aea9-c88c2ed602fc
+
+	column PersonKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 120e1f02-f7e8-4be8-8e31-fb5ba69ce092
+		summarizeBy: count
+		sourceColumn: PersonKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column firstname
+		dataType: string
+		lineageTag: 7af886b9-150a-440c-ac48-9e2395082927
+		summarizeBy: none
+		sourceColumn: firstname
+
+		annotation SummarizationSetBy = Automatic
+
+	column lastname
+		dataType: string
+		lineageTag: 853ef0eb-6522-47dd-ab4c-cb22060cee2c
+		summarizeBy: none
+		sourceColumn: lastname
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullName
+		dataType: string
+		lineageTag: b14160d1-32a4-47e8-ba09-6a207f74acca
+		summarizeBy: none
+		sourceColumn: FullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column birthdate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b47145c2-4015-4607-a92d-cd4e6b5f00e2
+		summarizeBy: none
+		sourceColumn: birthdate
+
+		variation Variation
+			isDefault
+			relationship: 97a004ef-397a-43bb-b562-06694306ab11
+			defaultHierarchy: LocalDateTable_d93bf9af-cdb5-416c-8bda-2124ec287253.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: bc1840f9-ddbe-4fa1-95e7-57baf9a187fd
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dim_person (2)' = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"589387ad-ce92-442a-b77f-3eb4eb51443d" = Workspaces{[workspaceId="589387ad-ce92-442a-b77f-3eb4eb51443d"]}[Data],
+				    #"4b7b368b-a9df-4dd2-807d-ad02d718ea95" = #"589387ad-ce92-442a-b77f-3eb4eb51443d"{[dataflowId="4b7b368b-a9df-4dd2-807d-ad02d718ea95"]}[Data],
+				    dim_person_ = #"4b7b368b-a9df-4dd2-807d-ad02d718ea95"{[entity="dim_person",version=""]}[Data]
+				in
+				    dim_person_
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

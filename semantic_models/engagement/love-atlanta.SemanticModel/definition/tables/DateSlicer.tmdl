@@ -1,0 +1,77 @@
+table DateSlicer
+	lineageTag: 7898aa1e-5c03-4ea5-8fe7-8ee4f879af50
+
+	column Value
+		formatString: mmmm d
+		lineageTag: efd59c20-6090-4368-8b83-03e680fde52c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		variation Variation
+			isDefault
+			relationship: 05ebd4e5-7a7f-46b5-b9ab-a96c40860ad3
+			defaultHierarchy: LocalDateTable_54079b1f-e452-4851-8d5f-f3cf157928a9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column DisplayDate = FORMAT(DateSlicer[Value], "MM/DD")
+		lineageTag: 9b00ab4d-3b96-46d4-a977-731d1544cf40
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthDayNumber = MONTH(DateSlicer[Value]) * 100 + DAY(DateSlicer[Value])
+		formatString: 0
+		lineageTag: 7c7cd047-76e3-4eca-a04f-5485da928e18
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column NormalizedDate = DATE(2000, MONTH(DateSlicer[Value]), DAY(DateSlicer[Value]))
+		formatString: MM/dd
+		lineageTag: 512aedc0-760f-4212-9a93-5877679312a4
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: de98e037-820b-4ef1-8478-804d7e53666c
+			defaultHierarchy: LocalDateTable_6ad86cf6-3f16-48b5-901a-94a5ee69d607.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column DateRank = DATEDIFF(MIN(DateSlicer[Value]), DateSlicer[Value], DAY)
+		formatString: 0
+		lineageTag: 95647999-563d-4b19-b19a-939371bcbcce
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column AxisLabel =
+			
+			IF(
+			    MOD(DATEDIFF(MIN(DateSlicer[Value]), DateSlicer[Value], DAY), 2) = 0,
+			    FORMAT(DateSlicer[Value], "MM/dd"),
+			    UNICHAR(8203)
+			)
+		lineageTag: 9aea8c3f-7077-4a2a-969b-ddb14f9770ea
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeekName = FORMAT([Value],"dddd")
+		lineageTag: 196c3bad-799a-48d0-bf16-f674985b7dc6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DateSlicer = calculated
+		mode: import
+		source = GENERATESERIES(DATE(YEAR(TODAY()), 4, 21), DATE(YEAR(TODAY()), 6, 18), 1)
+
+	annotation PBI_Id = b1f8b6de27ee485992ea76015d329d8b
+

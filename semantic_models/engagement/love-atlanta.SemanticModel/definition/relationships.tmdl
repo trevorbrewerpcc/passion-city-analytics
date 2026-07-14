@@ -1,0 +1,54 @@
+relationship de98e037-820b-4ef1-8478-804d7e53666c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DateSlicer.NormalizedDate
+	toColumn: LocalDateTable_6ad86cf6-3f16-48b5-901a-94a5ee69d607.Date
+
+relationship 05ebd4e5-7a7f-46b5-b9ab-a96c40860ad3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DateSlicer.Value
+	toColumn: LocalDateTable_54079b1f-e452-4851-8d5f-f3cf157928a9.Date
+
+relationship 97a004ef-397a-43bb-b562-06694306ab11
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'dim_person (2)'.birthdate
+	toColumn: LocalDateTable_d93bf9af-cdb5-416c-8bda-2124ec287253.Date
+
+relationship d4c5e843-2aa8-4651-b88d-73632e1877d4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'dim_project (2)'.ProjectStartDateTime
+	toColumn: LocalDateTable_42b10cce-e78e-4d87-8931-0c62116755a5.Date
+
+relationship AutoDetected_bfa76bfc-3b86-42bb-be8f-51dc400a1811
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'dim_location (2)'.ProjectKey
+	toColumn: 'dim_project (2)'.ProjectKey
+
+relationship AutoDetected_bfccef1e-be0f-46e8-b713-bff17f8fb310
+	fromColumn: 'fact_projectattendance (2)'.ProjectKey
+	toColumn: 'dim_project (2)'.ProjectKey
+
+relationship AutoDetected_92148e2c-f5f7-41bd-ba8d-527dbb0697f2
+	isActive: false
+	fromColumn: 'fact_projectattendance (2)'.PartnerKey
+	toColumn: 'dim_partner (2)'.PartnerKey
+
+relationship AutoDetected_bbb40109-4180-4886-8dd6-ccf1e6aebd88
+	isActive: false
+	fromColumn: 'fact_projectattendance (2)'.PersonKey
+	toColumn: 'dim_person (2)'.PersonKey
+
+relationship 309248d8-9af8-4558-9260-c943b56564c1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fact_projectattendance (2)'.DateSignedUp
+	toColumn: LocalDateTable_7c561f26-b447-4304-a494-c540e40018c8.Date
+
+relationship 48cc66e9-9b81-50a8-3cb5-473730afb291
+	fromColumn: 'fact_projectattendance (2)'.MonthDayNumber
+	toColumn: DateSlicer.MonthDayNumber
+
+relationship a02a4bb5-305e-4c0d-be7a-68a04fba44c2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fact_projectattendance (2)'.OccurrenceDate
+	toColumn: LocalDateTable_1c413e5d-5134-4f38-84b7-452627a01279.Date
+

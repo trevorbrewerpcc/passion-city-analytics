@@ -1,0 +1,31 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dim_location (2)","dim_partner (2)","dim_person (2)","dim_project (2)","fact_projectattendance (2)"]
+
+annotation PBI_ProTooling = ["MCP-PBIModeling","DevMode"]
+
+ref table DateTableTemplate_aecea78d-a5fa-46ad-8ec2-efccfc760b3c
+ref table DateSlicer
+ref table DayPicker
+ref table LocalDateTable_6ad86cf6-3f16-48b5-901a-94a5ee69d607
+ref table LocalDateTable_54079b1f-e452-4851-8d5f-f3cf157928a9
+ref table 'dim_location (2)'
+ref table 'dim_partner (2)'
+ref table 'dim_person (2)'
+ref table LocalDateTable_d93bf9af-cdb5-416c-8bda-2124ec287253
+ref table 'dim_project (2)'
+ref table LocalDateTable_42b10cce-e78e-4d87-8931-0c62116755a5
+ref table 'fact_projectattendance (2)'
+ref table LocalDateTable_7c561f26-b447-4304-a494-c540e40018c8
+ref table LocalDateTable_1c413e5d-5134-4f38-84b7-452627a01279
+
+ref cultureInfo en-US
+

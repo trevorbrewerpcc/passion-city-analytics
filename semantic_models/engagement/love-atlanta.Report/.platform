@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "love-atlanta"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "95288b70-87a2-480e-a3ca-574e26d4e0f3"
+  }
+}
